@@ -5,3 +5,8 @@
     --green: #BBF246;
     --white : #FFFFFF;
 }
+
+body {
+    font-family: 'Bebas Neue', sans-serif;
+    background-color: var(--dark-blue);
+}
