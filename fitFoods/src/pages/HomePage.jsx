@@ -8,7 +8,12 @@ const HomePage = () => {
 		<>
 			<Header />
 			<IconsRow />
-			<ImagesSection />
+			<ImagesSection img='homeImage1.svg' text='Get exercises by Muscle' />
+			<ImagesSection
+				img='homeImage2.svg'
+				text='Get food recommendations'
+				reverse
+			/>
 		</>
 	);
 };
