@@ -39,9 +39,9 @@ const FrontBody = () => {
 				/>
 			</g>
 			<g
-				id='Calves'
-				onMouseEnter={() => changeColor('Calves')}
-				onMouseLeave={() => returnColor('Calves')}
+				id='Front Calves'
+				onMouseEnter={() => changeColor('Front Calves')}
+				onMouseLeave={() => returnColor('Front Calves')}
 			>
 				<path
 					d='M257.702 467.5C258.535 491.5 259.402 541.1 256.202 547.5C252.702 556.667 246.102 577.5 247.702 587.5C246.869 588.667 245.002 590.3 244.202 587.5C244.035 569.667 243.102 533.2 240.702 530C238.702 521.167 234.002 502.1 231.202 496.5C227.23 489.052 219.313 473.124 219.203 468.594C219.203 468.562 219.202 468.531 219.202 468.5C219.202 468.531 219.202 468.562 219.203 468.594C219.372 482.132 220.106 510.716 221.702 517.5C223.369 526.333 227.602 545.6 231.202 552C234.369 558.333 240.702 573.2 240.702 582C241.702 584.667 244.102 590 245.702 590C246.035 590.167 247.502 590.7 248.702 589.5C250.202 588 263.702 546.5 268.202 541.5C269.389 534.5 269.95 516.3 264.702 501.5C264.035 495.333 261.702 479.9 257.702 467.5Z'
@@ -159,9 +159,9 @@ const FrontBody = () => {
 				/>
 			</g>
 			<g
-				id='Forearms'
-				onMouseEnter={() => changeColor('Forearms')}
-				onMouseLeave={() => returnColor('Forearms')}
+				id='Front Forearms'
+				onMouseEnter={() => changeColor('Front Forearms')}
+				onMouseLeave={() => returnColor('Front Forearms')}
 			>
 				<path
 					d='M318.5 249C313.7 227.8 299.5 213.833 293 209.5C291.8 210.3 290.5 223.167 290 229.5C287.6 228.3 272.667 222.667 265.5 220C266.3 246 282.167 260.5 290 264.5C300.8 270.5 315.167 293.667 321 304.5C320.6 302.9 330.833 295.5 336 292C332 286 322.667 260.833 318.5 249Z'
@@ -197,9 +197,9 @@ const FrontBody = () => {
 				stroke='black'
 			/>
 			<g
-				id='Shoulders'
-				onMouseEnter={() => changeColor('Shoulders')}
-				onMouseLeave={() => returnColor('Shoulders')}
+				id='Front Shoulders'
+				onMouseEnter={() => changeColor('Front Shoulders')}
+				onMouseLeave={() => returnColor('Front Shoulders')}
 			>
 				<path
 					d='M270.443 118C259.243 110 242.11 110 234.943 111H226.443L221.943 117C232.343 119.4 249.943 145 257.443 157.5H262.943C267.343 161.5 275.776 165.5 279.443 167C280.243 165.4 281.11 155 281.443 150C282.243 134 274.443 122 270.443 118Z'
@@ -235,9 +235,9 @@ const FrontBody = () => {
 				/>
 			</g>
 			<g
-				id='Traps'
-				onMouseEnter={() => changeColor('Traps')}
-				onMouseLeave={() => returnColor('Traps')}
+				id='Front Traps'
+				onMouseEnter={() => changeColor('Front Traps')}
+				onMouseLeave={() => returnColor('Front Traps')}
 			>
 				<path
 					d='M194 118.5C200.8 104.9 205.833 83.8333 207.5 75C205.9 96.2 225.167 107.833 235 111C220.2 109.4 201.5 115.333 194 118.5Z'
