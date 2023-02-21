@@ -12,10 +12,10 @@
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
 }
 
-.wrapper img {
+/* .wrapper img {
     width: 8rem;
     height: fit-content;
-}
+} */
 
 .rectangle{
     position:absolute;
@@ -26,16 +26,36 @@
     background: #192026;
 }
 
+.info h2 {
+    font-size: clamp(1rem, 3vw, 2rem);
+    font-weight: 400;
+    color: var(--dark-blue);
+    text-align: flex-start;
+    width: fit-content;
+}
+
+.info p {
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    font-weight: 400;
+    color: var(--dark-blue);
+    text-align: flex-start;
+    width: fit-content;
+}
+
 .logos {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     gap: 1rem;
-    height: 100px;
-    width: 100px;
 }
+
 .social{
     margin-top: 10px;
     margin-right: 10px;
+}
+
+.icon {
+    width: 12rem;
+    cursor: pointer;
 }
