@@ -1,0 +1,17 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 3rem;
+    padding: 1rem 5rem;
+
+    background-color: var(--green);
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.wrapper img {
+    width: 8rem;
+    height: fit-content;
+}

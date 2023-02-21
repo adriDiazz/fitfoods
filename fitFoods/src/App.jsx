@@ -3,6 +3,7 @@ import NavBar from './components/NavBar';
 import ExercisesPage from './pages/ExercisesPage';
 import HomePage from './pages/HomePage';
 import MenuPage from './pages/MenuPage';
+import Footer from './components/Footer';
 
 function App() {
 	return (
@@ -13,6 +14,7 @@ function App() {
 				<Route path='menus' element={<MenuPage />} />
 				<Route path='exercises' element={<ExercisesPage />} />
 			</Routes>
+			<Footer />
 		</>
 	);
 }
