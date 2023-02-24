@@ -1,0 +1,10 @@
+.over {
+    cursor: pointer;
+    fill: var(--green);
+    
+}
+
+.noOver {
+    cursor: default;
+    fill: #D9D9D9;
+}
