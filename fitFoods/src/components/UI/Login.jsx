@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styles from './Login.module.css';
 
 const Login = () => {
@@ -30,7 +31,7 @@ const Login = () => {
 						</div>
 					</div>
 					<div className={styles.inferior}>
-						<a href='#'>Volver</a>
+						<NavLink to='/'>Volver</NavLink>
 					</div>
 				</div>
 			</div>

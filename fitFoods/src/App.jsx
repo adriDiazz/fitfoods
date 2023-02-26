@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import MenuPage from './pages/MenuPage';
 import Footer from './components/UI/Footer';
 import Login from './components/UI/Login';
+import Register from './components/UI/Register';
 
 function App() {
 	return (
@@ -15,6 +16,7 @@ function App() {
 				<Route path='menus' element={<MenuPage />} />
 				<Route path='exercises' element={<ExercisesPage />} />
 				<Route path='login' element={<Login />} />
+				<Route path='register' element={<Register />} />
 			</Routes>
 			<Footer />
 		</>

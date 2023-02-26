@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styles from './NavBar.module.css';
 
-
 const NavBar = () => {
 	return (
 		<>
@@ -33,7 +32,8 @@ const NavBar = () => {
 						Menus
 					</NavLink>
 				</ul>
-				<NavLink to="login">Log in</NavLink>
+				<NavLink to='register'>Register</NavLink>
+				<NavLink to='login'>Log in</NavLink>
 			</nav>
 			<div className={styles.greenLine}></div>
 		</>
