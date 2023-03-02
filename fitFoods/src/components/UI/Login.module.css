@@ -17,6 +17,12 @@
 	margin-left: 30%;
 }
 
+#central img {
+	width: 8rem;
+	height: fit-content;
+	margin-left: 25%;
+}
+
 .titulo {
 	font-size: 250%;
 	color: white;
@@ -38,7 +44,7 @@
 
 #login input {
 	font-family: 'Overpass', sans-serif;
-	font-size: 110%;
+	font-size: 80%;
 	color: var(--dark-blue);
 
 	display: block;

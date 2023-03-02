@@ -32,8 +32,22 @@ const NavBar = () => {
 						Menus
 					</NavLink>
 				</ul>
-				<NavLink to='register'>Register</NavLink>
-				<NavLink to='login'>Log in</NavLink>
+				<NavLink
+					to='register'
+					className={({ isActive }) =>
+						isActive ? styles.selected : styles.navLink
+					}
+				>
+					Register
+				</NavLink>
+				<NavLink
+					to='login'
+					className={({ isActive }) =>
+						isActive ? styles.selected : styles.navLink
+					}
+				>
+					Log in
+				</NavLink>
 			</nav>
 			<div className={styles.greenLine}></div>
 		</>

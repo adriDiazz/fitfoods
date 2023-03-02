@@ -5,9 +5,10 @@ const Register = () => {
 	return (
 		<section>
 			<div id={styles.contenedor}>
+				<div className={styles.titulo}>START TRAINING WITH US</div>
 				<div id={styles.central}>
+					<img src='logo.svg' alt='fitfoods' />
 					<div id={styles.login}>
-						<div className={styles.titulo}>Bienvenido</div>
 						<form id={styles.loginform}>
 							<input
 								type='text'
