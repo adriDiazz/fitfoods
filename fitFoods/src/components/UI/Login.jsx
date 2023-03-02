@@ -5,19 +5,19 @@ const Login = () => {
 	return (
 		<section>
 			<div id={styles.contenedor}>
+				<div className={styles.titulo}>START TRAINING WITH US</div>
 				<div id={styles.central}>
 					<div id={styles.login}>
-						<div className={styles.titulo}>Bienvenido</div>
 						<form id={styles.loginform}>
 							<input
 								type='text'
 								name='usuario'
-								placeholder='Usuario'
+								placeholder='Username'
 								required
 							></input>
 							<input
 								type='password'
-								placeholder='Contraseña'
+								placeholder='Password'
 								name='password'
 								required
 							></input>

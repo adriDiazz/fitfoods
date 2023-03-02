@@ -14,23 +14,20 @@
 #central {
 	max-width: 320px;
 	width: 100%;
+	margin-left: 30%;
 }
 
 .titulo {
 	font-size: 250%;
-	color: #bbe1fa;
-	text-align: center;
+	color: white;
+	text-align: left;
 	margin-bottom: 20px;
 }
 
 #login {
 	width: 100%;
 	padding: 50px 30px;
-	background-color: #3282b8;
-
-	-webkit-box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
-	-moz-box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
-	box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.15);
+	background-color: var(--dark-blue);
 
 	border-radius: 3px 3px 3px 3px;
 	-moz-border-radius: 3px 3px 3px 3px;
@@ -42,7 +39,7 @@
 #login input {
 	font-family: 'Overpass', sans-serif;
 	font-size: 110%;
-	color: #1b262c;
+	color: var(--dark-blue);
 
 	display: block;
 	width: 100%;
@@ -53,10 +50,8 @@
 
 	box-sizing: border-box;
 
-	border: none;
-	border-radius: 3px 3px 3px 3px;
-	-moz-border-radius: 3px 3px 3px 3px;
-	-webkit-border-radius: 3px 3px 3px 3px;
+	border: solid;
+	border-radius: 15px;
 }
 
 #login input::placeholder {
@@ -67,23 +62,21 @@
 #login button {
 	font-family: 'Overpass', sans-serif;
 	font-size: 110%;
-	color: #1b262c;
+	color: var(--dark-blue);
 	width: 100%;
 	height: 40px;
-	border: none;
+	border: solid;
 
-	border-radius: 3px 3px 3px 3px;
-	-moz-border-radius: 3px 3px 3px 3px;
-	-webkit-border-radius: 3px 3px 3px 3px;
+	border-radius: 50px;
 
-	background-color: #bbe1fa;
+	background-color: var(--green);
 
 	margin-top: 10px;
 }
 
 #login button:hover {
-	background-color: #0f4c75;
-	color: #bbe1fa;
+	background-color: var(--dark-blue);
+	color: var(--green);
 }
 
 .pieform {
@@ -95,12 +88,12 @@
 .pieform a {
 	display: block;
 	text-decoration: none;
-	color: #bbe1fa;
+	color: white;
 	margin-bottom: 3px;
 }
 
 .pieform a:hover {
-	color: #0f4c75;
+	color: var(--green);
 }
 
 .inferior {
@@ -112,10 +105,10 @@
 .inferior a {
 	display: block;
 	text-decoration: none;
-	color: #bbe1fa;
+	color: white;
 	margin-bottom: 3px;
 }
 
 .inferior a:hover {
-	color: #3282b8;
+	color: var(--green);
 }
