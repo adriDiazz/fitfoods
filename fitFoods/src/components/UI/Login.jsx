@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styles from './Login.module.css';
 
 const Login = () => {
@@ -27,12 +27,13 @@ const Login = () => {
 							</button>
 						</form>
 						<div className={styles.pieform}>
-							<a href='#'>¿Perdiste tu contraseña?</a>
-							<a href='#'>¿No tienes Cuenta? Registrate</a>
+							<NavLink to='/Register'>
+								Don´t you have an account? Register
+							</NavLink>
 						</div>
 					</div>
 					<div className={styles.inferior}>
-						<NavLink to='/'>Volver</NavLink>
+						<NavLink to='/'>Back</NavLink>
 					</div>
 				</div>
 			</div>

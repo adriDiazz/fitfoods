@@ -32,10 +32,6 @@ const Register = () => {
 								Register
 							</button>
 						</form>
-						<div className={styles.pieform}>
-							<a href='#'>¿Perdiste tu contraseña?</a>
-							<a href='#'>¿No tienes Cuenta? Registrate</a>
-						</div>
 					</div>
 					<div className={styles.inferior}>
 						<NavLink to='/'>Volver</NavLink>
