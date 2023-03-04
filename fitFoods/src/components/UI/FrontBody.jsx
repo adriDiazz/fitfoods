@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { LanguageContext } from '../../context/Languaje';
 import style from './Body.module.css';
 
 const FrontBody = () => {
 	const [overName, setOverName] = useState('');
 	const [tooltipStyles, setTooltipStyles] = useState({});
+	const languageContext = useContext(LanguageContext);
 
-	const handleOver = (name, e) => {
-		setOverName(name);
+	const handleOver = (es, en) => {
+		languageContext.userLanguage === 'es' ? setOverName(es) : setOverName(en);
 	};
 
 	const handleLeave = () => {
@@ -56,11 +58,17 @@ const FrontBody = () => {
 					/>
 				</g>
 				<g
-					id='Front Calves'
-					onMouseOver={e => handleOver('Front Calves', e)}
+					id='Calves'
+					onMouseOver={() => handleOver('Pantorrillas', 'Calves')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
-					className={overName === 'Front Calves' ? style.over : style.noOver}
+					className={
+						overName === 'Pantorrillas'
+							? style.over
+							: style.noOver | (overName === 'Calves')
+							? style.over
+							: style.noOver
+					}
 				>
 					<path
 						d='M257.702 467.5C258.535 491.5 259.402 541.1 256.202 547.5C252.702 556.667 246.102 577.5 247.702 587.5C246.869 588.667 245.002 590.3 244.202 587.5C244.035 569.667 243.102 533.2 240.702 530C238.702 521.167 234.002 502.1 231.202 496.5C227.23 489.052 219.313 473.124 219.203 468.594C219.203 468.562 219.202 468.531 219.202 468.5C219.202 468.531 219.202 468.562 219.203 468.594C219.372 482.132 220.106 510.716 221.702 517.5C223.369 526.333 227.602 545.6 231.202 552C234.369 558.333 240.702 573.2 240.702 582C241.702 584.667 244.102 590 245.702 590C246.035 590.167 247.502 590.7 248.702 589.5C250.202 588 263.702 546.5 268.202 541.5C269.389 534.5 269.95 516.3 264.702 501.5C264.035 495.333 261.702 479.9 257.702 467.5Z'
@@ -73,10 +81,16 @@ const FrontBody = () => {
 				</g>
 				<g
 					id='Quats'
-					onMouseOver={() => handleOver('Quats')}
+					onMouseOver={() => handleOver('Cuádriceps', 'Quats')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
-					className={overName === 'Quats' ? style.over : style.noOver}
+					className={
+						overName === 'Cuádriceps'
+							? style.over
+							: style.noOver | (overName === 'Quats')
+							? style.over
+							: style.noOver
+					}
 				>
 					<path
 						d='M263.376 389C265.376 342.2 250.876 295.5 243.376 278L235.876 285C234.276 290.6 235.209 304.667 235.876 311C220.876 355 209.876 425.5 210.876 443.5C211.676 457.9 217.876 469.5 220.876 473.5C224.876 473.9 232.209 472 235.376 471C237.376 459.4 244.209 457.833 247.376 458.5C248.576 461.7 253.876 465.833 256.376 467.5C253.976 460.7 253.376 438 253.376 427.5C259.776 413.5 262.709 396 263.376 389Z'
@@ -115,10 +129,16 @@ const FrontBody = () => {
 				</g>
 				<g
 					id='Abs'
-					onMouseOver={() => handleOver('Abs')}
+					onMouseOver={() => handleOver('Abdominales', 'Abs')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
-					className={overName === 'Abs' ? style.over : style.noOver}
+					className={
+						overName === 'Abdominales'
+							? style.over
+							: style.noOver | (overName === 'Abs')
+							? style.over
+							: style.noOver
+					}
 				>
 					<path
 						d='M187 329.5V259C198.6 261.4 211.833 258 217 256C216.6 276.4 208.5 303.167 204.5 314C202.9 318.4 199.833 323.167 198.5 325C195.3 328.6 189.5 329.5 187 329.5Z'
@@ -155,10 +175,16 @@ const FrontBody = () => {
 				</g>
 				<g
 					id='Lats'
-					onMouseOver={() => handleOver('Lats')}
+					onMouseOver={() => handleOver('Dorsales', 'Lats')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
-					className={overName === 'Lats' ? style.over : style.noOver}
+					className={
+						overName === 'Dorsales'
+							? style.over
+							: style.noOver | (overName === 'Lats')
+							? style.over
+							: style.noOver
+					}
 				>
 					<path
 						d='M241.478 237.267C235.939 209.358 244.851 192.414 250 187.43C250 179.057 248.935 169.655 248.402 166C243.715 169.987 226.92 175.303 219.109 177.463C222.517 181.051 221.949 218.827 221.239 237.267C220.174 243.248 218.399 252.052 216.446 256.704C215.167 280.227 205.616 308.036 201 319C207.817 306.242 231.891 286.44 243.076 278.134C245.633 270.16 243.076 247.567 241.478 237.267Z'
@@ -170,11 +196,17 @@ const FrontBody = () => {
 					/>
 				</g>
 				<g
-					id='Front Forearms'
-					onMouseOver={() => handleOver('Front Forearms')}
+					id='Forearms'
+					onMouseOver={() => handleOver('Antebrazo', 'Forearms')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
-					className={overName === 'Front Forearms' ? style.over : style.noOver}
+					className={
+						overName === 'Antebrazo'
+							? style.over
+							: style.noOver | (overName === 'Forearms')
+							? style.over
+							: style.noOver
+					}
 				>
 					<path
 						d='M318.5 249C313.7 227.8 299.5 213.833 293 209.5C291.8 210.3 290.5 223.167 290 229.5C287.6 228.3 272.667 222.667 265.5 220C266.3 246 282.167 260.5 290 264.5C300.8 270.5 315.167 293.667 321 304.5C320.6 302.9 330.833 295.5 336 292C332 286 322.667 260.833 318.5 249Z'
@@ -187,10 +219,16 @@ const FrontBody = () => {
 				</g>
 				<g
 					id='Biceps'
-					onMouseOver={() => handleOver('Biceps')}
+					onMouseOver={() => handleOver('Bíceps', 'Biceps')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
-					className={overName === 'Biceps' ? style.over : style.noOver}
+					className={
+						overName === 'Bíceps'
+							? style.over
+							: style.noOver | (overName === 'Biceps')
+							? style.over
+							: style.noOver
+					}
 				>
 					<path
 						d='M293.452 210.5C294.252 183.7 284.786 170.333 279.952 167C274.752 165.4 266.786 160.333 263.452 158H257.452C255.052 158.4 251.119 163.167 249.452 165.5C249.452 171.1 250.452 182.167 250.952 187C252.152 199 260.786 213.667 264.952 219.5C267.752 221.9 283.119 227.5 290.452 230C290.852 227.6 292.619 216 293.452 210.5Z'
@@ -208,11 +246,17 @@ const FrontBody = () => {
 					stroke='black'
 				/>
 				<g
-					id='Front Shoulders'
-					onMouseOver={() => handleOver('Front Shoulders')}
+					id='Shoulders'
+					onMouseOver={() => handleOver('Hombros', 'Shoulders')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
-					className={overName === 'Front Shoulders' ? style.over : style.noOver}
+					className={
+						overName === 'Hombros'
+							? style.over
+							: style.noOver | (overName === 'Shoulders')
+							? style.over
+							: style.noOver
+					}
 				>
 					<path
 						d='M270.443 118C259.243 110 242.11 110 234.943 111H226.443L221.943 117C232.343 119.4 249.943 145 257.443 157.5H262.943C267.343 161.5 275.776 165.5 279.443 167C280.243 165.4 281.11 155 281.443 150C282.243 134 274.443 122 270.443 118Z'
@@ -225,10 +269,16 @@ const FrontBody = () => {
 				</g>
 				<g
 					id='Chest'
-					onMouseOver={() => handleOver('Chest')}
+					onMouseOver={() => handleOver('Pecho', 'Chest')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
-					className={overName === 'Chest' ? style.over : style.noOver}
+					className={
+						overName === 'Pecho'
+							? style.over
+							: style.noOver | (overName === 'Chest')
+							? style.over
+							: style.noOver
+					}
 				>
 					<path d='M192.675 135.5C199.475 123.1 214.175 118.333 220.675 117.5C232.275 117.5 249.842 144.167 257.175 157.5C249.575 167.9 231.675 174.167 223.675 176C202.075 176.4 192.342 170.833 190.175 168C189.375 159.6 191.509 142.833 192.675 135.5Z' />
 					<path
@@ -242,11 +292,17 @@ const FrontBody = () => {
 					/>
 				</g>
 				<g
-					id='Front Traps'
-					onMouseOver={() => handleOver('Front Traps')}
+					id='Traps'
+					onMouseOver={() => handleOver('Trapecios', 'Traps')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
-					className={overName === 'Front Traps' ? style.over : style.noOver}
+					className={
+						overName === 'Trapecios'
+							? style.over
+							: style.noOver | (overName === 'Traps')
+							? style.over
+							: style.noOver
+					}
 				>
 					<path
 						d='M194 118.5C200.8 104.9 205.833 83.8333 207.5 75C205.9 96.2 225.167 107.833 235 111C220.2 109.4 201.5 115.333 194 118.5Z'

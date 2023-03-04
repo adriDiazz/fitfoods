@@ -1,3 +1,4 @@
+import { ProvideText } from '../../context/Languaje';
 import style from './IconsRow.module.css';
 
 const IconsRow = () => {
@@ -6,15 +7,21 @@ const IconsRow = () => {
 			<div className={style.wrapper}>
 				<div className={style.info}>
 					<img src='gain.svg' alt='' />
-					<h2>Gain</h2>
+					<h2>
+						<ProvideText es='Gana' en='Gain' />
+					</h2>
 				</div>
 				<div className={style.info}>
 					<img src='eat.svg' alt='' />
-					<h2>Eat</h2>
+					<h2>
+						<ProvideText es='Come' en='Eat' />
+					</h2>
 				</div>
 				<div className={style.info}>
 					<img src='plan.svg' alt='' />
-					<h2>Plan</h2>
+					<h2>
+						<ProvideText es='Planea' en='Plan' />
+					</h2>
 				</div>
 			</div>
 		</section>

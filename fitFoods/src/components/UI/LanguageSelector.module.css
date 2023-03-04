@@ -1,0 +1,41 @@
+.globe:hover {
+	fill: var(--green);
+}
+
+.container {
+	position: relative;
+	display: inline-block;
+}
+
+.languageButton {
+	cursor: pointer;
+	border: none;
+	background: none;
+	margin: 0;
+	padding: 0;
+}
+
+.languageDropdown {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 6em;
+	border: 1px solid rgba(0, 0, 0, 0.04);
+	box-shadow: 0 0px 11px 0px rgba(0, 0, 0, 0.24);
+}
+
+.dropdownList {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.dropdownItem {
+	padding: 6px 12px;
+	color: white;
+}
+
+.dropdownItem:hover {
+	background-color: rgb(65, 65, 65);
+	cursor: pointer;
+}

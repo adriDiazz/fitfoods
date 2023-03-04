@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { LanguageContext } from '../../context/Languaje';
 import style from './Body.module.css';
 
 const BackBody = () => {
 	const [overName, setOverName] = useState('');
 	const [tooltipStyles, setTooltipStyles] = useState({});
+	const languageContext = useContext(LanguageContext);
 
-	const handleOver = name => {
-		setOverName(name);
+	const handleOver = (es, en) => {
+		languageContext.userLanguage === 'es' ? setOverName(es) : setOverName(en);
 	};
 
 	const handleLeave = () => {
@@ -65,10 +67,16 @@ const BackBody = () => {
 				/>
 				<g
 					id='Back Calves'
-					onMouseOver={() => handleOver('Back Calves')}
+					onMouseOver={() => handleOver('Pantorrillas traseras', 'Back Calves')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
-					className={overName === 'Back Calves' ? style.over : style.noOver}
+					className={
+						overName === 'Pantorrillas traseras'
+							? style.over
+							: style.noOver | (overName === 'Back Calves')
+							? style.over
+							: style.noOver
+					}
 				>
 					<path
 						d='M268 484.5C268 476.1 267 466.667 266.5 463C265.3 461.8 260.667 458.833 258.5 457.5L258 458C255.2 460 250.167 471.167 248 476.5L246 468C242 470 235 484.5 232 491.5C232.8 497.1 235.333 509.167 236.5 514.5C236.5 532.1 237.167 543.833 237.5 547.5C240.3 559.9 243.333 562 244.5 561.5C254.9 558.7 262.167 546 264.5 540C266.9 547.2 278.5 555 284 558C284 546.4 283.333 535.167 283 531C282.2 519.4 272.667 495.167 268 484.5Z'
@@ -81,10 +89,16 @@ const BackBody = () => {
 				</g>
 				<g
 					id='Hamstrings'
-					onMouseOver={() => handleOver('Hamstrings')}
+					onMouseOver={() => handleOver('Isquiotibiales', 'Hamstrings')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
-					className={overName === 'Hamstrings' ? style.over : style.noOver}
+					className={
+						overName === 'Isquiotibiales'
+							? style.over
+							: style.noOver | (overName === 'Hamstrings')
+							? style.over
+							: style.noOver
+					}
 				>
 					<path
 						d='M259.5 323.089C253.5 309.089 247.667 285.256 245.5 275.089C236.7 264.289 224.167 266.589 219 269.089L224 282.089L241 309.089C245.333 312.256 252 323.689 244 344.089C236 364.489 207.333 361.922 194 358.089L195.5 381.589C196.3 387.189 201.833 403.922 204.5 411.589C207.3 415.989 212 434.756 214 443.589C214.4 458.389 226.167 483.089 232 493.589C233.2 486.789 241.833 474.089 246 468.589C246.8 464.589 245.667 450.922 245 444.589C249.8 453.389 261 460.589 266 463.089C265.6 459.489 262.833 449.256 261.5 444.589C259.9 439.389 262.167 411.422 263.5 398.089C264.5 392.089 264 381.589 263.5 362.589C263.1 347.389 263.5 332.422 259.5 323.089Z'
@@ -97,10 +111,16 @@ const BackBody = () => {
 				</g>
 				<g
 					id='Glutes'
-					onMouseOver={() => handleOver('Glutes')}
+					onMouseOver={() => handleOver('Glúteos', 'Glutes')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
-					className={overName === 'Glutes' ? style.over : style.noOver}
+					className={
+						overName === 'Glúteos'
+							? style.over
+							: style.noOver | (overName === 'Glutes')
+							? style.over
+							: style.noOver
+					}
 				>
 					<path
 						d='M243 296.5C241.4 292.9 227.333 279.333 220.5 273C203.3 274.2 193 289.833 190 297.5V340.5C192.4 345.3 193.333 349.5 193.5 351C193.5 357.8 194.167 360.167 194.5 360.5C203.7 365.3 218 364.5 224 363.5C244 364 251.5 348.5 253 344.5C254.2 341.3 255 328 253 322C249.5 316 244.667 302.667 243 296.5Z'
@@ -124,10 +144,16 @@ const BackBody = () => {
 				/>
 				<g
 					id='Back Forearms'
-					onMouseOver={() => handleOver('Back Forearms')}
+					onMouseOver={() => handleOver('Antebrazo trasero', 'Back Forearms')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
-					className={overName === 'Back Forearms' ? style.over : style.noOver}
+					className={
+						overName === 'Antebrazo trasero'
+							? style.over
+							: style.noOver | (overName === 'Back Forearms')
+							? style.over
+							: style.noOver
+					}
 				>
 					<path
 						d='M323.5 247.512C316.7 232.312 307.333 218.845 303.5 214.012C302.667 214.845 300.8 217.312 300 220.512C299 224.512 297 222.512 295.5 220.512C294.3 218.912 293.667 205.512 293.5 199.012C292.7 191.412 288.833 189.845 287 190.012C283.4 191.212 282.167 194.845 282 196.512C282 200.112 284 208.345 285 212.012C287.8 215.612 287.5 221.512 287 224.012C287.4 226.012 281.833 226.512 279 226.512C279.4 237.312 282.5 246.012 284 249.012C288 258.212 297.667 270.845 302 276.012C307.2 282.012 319.833 306.845 325.5 318.512C337.9 319.712 344.667 316.012 346.5 314.012C342.9 306.412 337 288.845 334.5 281.012C331.7 268.212 326 253.345 323.5 247.512Z'
@@ -140,10 +166,16 @@ const BackBody = () => {
 				</g>
 				<g
 					id='Triceps'
-					onMouseOver={() => handleOver('Triceps')}
+					onMouseOver={() => handleOver('Tríceps', 'Triceps')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
-					className={overName === 'Triceps' ? style.over : style.noOver}
+					className={
+						overName === 'Tríceps'
+							? style.over
+							: style.noOver | (overName === 'Triceps')
+							? style.over
+							: style.noOver
+					}
 				>
 					<path
 						d='M303 199C301.4 191 293 171 289 162C287 153.2 268.5 145.667 259.5 143C259.9 146.2 256.333 166.667 254.5 176.5C255.3 183.3 259.167 194.333 261 199C265.4 214.2 274.167 223.667 278 226.5C282 228.1 286.333 227.167 288 226.5C290.5 218.5 288 213.5 288 212.5C285.2 208.9 284.167 201 284 197.5C284.4 193.5 286.833 192.167 288 192C291.2 192.8 292.333 197.667 292.5 200C292.9 214.4 295.333 223 296.5 225.5C298.1 227.1 299.5 226.167 300 225.5C302.4 223.5 303.667 217.333 304 214.5C304 206.5 303.333 200.833 303 199Z'
@@ -156,10 +188,16 @@ const BackBody = () => {
 				</g>
 				<g
 					id='Lower Back'
-					onMouseOver={() => handleOver('Lower Back')}
+					onMouseOver={() => handleOver('Espalda baja', 'Lower Back')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
-					className={overName === 'Lower Back' ? style.over : style.noOver}
+					className={
+						overName === 'Espalda baja'
+							? style.over
+							: style.noOver | (overName === 'Lower Back')
+							? style.over
+							: style.noOver
+					}
 				>
 					<path
 						d='M189.5 298C180.3 275.6 158.333 271.333 148.5 272C156.9 266.8 160.333 256.5 161 252C153.8 236.8 164 220 170 213.5C174.8 209.1 185.333 204.667 190 203L209.5 213.5C223.9 225.5 222.167 244.167 219.5 252C221.5 262 230.667 269.5 235 272C209.4 270 194 288.5 189.5 298Z'
@@ -168,10 +206,16 @@ const BackBody = () => {
 				</g>
 				<g
 					id='Back Lats'
-					onMouseOver={() => handleOver('Back Lats')}
+					onMouseOver={() => handleOver('Dorsales traseros', 'Back Lats')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
-					className={overName === 'Back Lats' ? style.over : style.noOver}
+					className={
+						overName === 'Dorsales traseros'
+							? style.over
+							: style.noOver | (overName === 'Back Lats')
+							? style.over
+							: style.noOver
+					}
 				>
 					<path
 						d='M244 124.5C240.8 123.3 232.667 113 229 108L224.5 110.5C220.9 115.3 219 122.5 218.5 125.5C214.1 139.5 215.333 154.333 216.5 160L190 208C192.4 209.6 198.333 212.333 201 213.5C207.8 215.5 213.167 225 215 229.5C215.8 231.9 215.333 244.167 215 250C216.6 258 223 266.667 226 270C230.8 271.2 241.333 273.5 246 274.5C240 243.7 246.5 224.667 250.5 219C251.7 216.2 252.667 196.5 253 187C252.6 182.2 256.5 165.333 258.5 157.5C260.9 152.3 260.5 142.333 260 138C259.6 131.2 249.167 126.167 244 124.5Z'
@@ -195,10 +239,16 @@ const BackBody = () => {
 				/>
 				<g
 					id='Back Traps'
-					onMouseOver={() => handleOver('Back Traps')}
+					onMouseOver={() => handleOver('Trapezio trasero', 'Back Traps')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
-					className={overName === 'Back Traps' ? style.over : style.noOver}
+					className={
+						overName === 'Trapezio trasero'
+							? style.over
+							: style.noOver | (overName === 'Back Traps')
+							? style.over
+							: style.noOver
+					}
 				>
 					<path
 						d='M158.5 121C156.1 114.2 148.833 105.833 145.5 102.5C150.3 102.5 177.167 94.5 190 90.5C193.6 93.7 221.5 99.8333 235 102.5C232.6 102.5 225.667 114.833 222.5 121C219.3 127.4 217.167 150.333 216.5 161C215.3 165.8 206.5 183.5 201 192C198.6 196.8 194 208 190.5 208C186.5 208 181.833 196.667 179 192C173.4 182.8 165.667 167.5 162.5 161C163.3 151.4 160.167 130.333 158.5 121Z'
@@ -218,10 +268,16 @@ const BackBody = () => {
 				</g>
 				<g
 					id='Back Shoulders'
-					onMouseOver={() => handleOver('Back Shoulders')}
+					onMouseOver={() => handleOver('Hombros traseros', 'Back Shoulders')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
-					className={overName === 'Back Shoulders' ? style.over : style.noOver}
+					className={
+						overName === 'Hombros traseros'
+							? style.over
+							: style.noOver | (overName === 'Back Shoulders')
+							? style.over
+							: style.noOver
+					}
 				>
 					<path
 						d='M255.243 104C246.043 102.4 238.077 102.333 235.243 102.5C231.243 104.1 229.577 107.5 229.243 109C233.243 115.8 240.577 122.5 243.743 125C259.743 130.2 262.077 140.833 261.243 145.5C266.043 146.7 275.243 150.667 279.243 152.5C281.643 154.1 286.91 159.5 289.243 162C290.843 136.4 284.577 122.333 281.243 118.5C271.643 108.5 259.91 104.667 255.243 104Z'

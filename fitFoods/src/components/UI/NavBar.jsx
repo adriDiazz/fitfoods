@@ -1,4 +1,6 @@
 import { NavLink } from 'react-router-dom';
+import { ProvideText } from '../../context/Languaje';
+import LanguageSelector from './LanguageSelector';
 import styles from './NavBar.module.css';
 
 const NavBar = () => {
@@ -13,7 +15,7 @@ const NavBar = () => {
 							isActive ? styles.selected : styles.navLink
 						}
 					>
-						Home
+						<ProvideText es='Inicio' en='Home' />
 					</NavLink>
 					<NavLink
 						to='exercises'
@@ -21,7 +23,7 @@ const NavBar = () => {
 							isActive ? styles.selected : styles.navLink
 						}
 					>
-						Exercises
+						<ProvideText es='Ejercicios' en='Exercises' />
 					</NavLink>
 					<NavLink
 						to='menus'
@@ -29,7 +31,7 @@ const NavBar = () => {
 							isActive ? styles.selected : styles.navLink
 						}
 					>
-						Menus
+						<ProvideText es='Menús' en='Menus' />
 					</NavLink>
 				</ul>
 				<NavLink
@@ -38,7 +40,7 @@ const NavBar = () => {
 						isActive ? styles.selected : styles.navLink
 					}
 				>
-					Register
+					<ProvideText es='Registro' en='Register' />
 				</NavLink>
 				<NavLink
 					to='login'
@@ -46,8 +48,9 @@ const NavBar = () => {
 						isActive ? styles.selected : styles.navLink
 					}
 				>
-					Log in
+					<ProvideText es='Acceso' en='Log In' />
 				</NavLink>
+				<LanguageSelector />
 			</nav>
 			<div className={styles.greenLine}></div>
 		</>

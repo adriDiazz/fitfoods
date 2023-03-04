@@ -6,19 +6,22 @@ import MenuPage from './pages/MenuPage';
 import Footer from './components/UI/Footer';
 import Login from './components/UI/Login';
 import Register from './components/UI/Register';
+import { LanguageProvider } from './context/Languaje';
 
 function App() {
 	return (
 		<>
-			<NavBar />
-			<Routes>
-				<Route path='/' element={<HomePage />} />
-				<Route path='menus' element={<MenuPage />} />
-				<Route path='exercises' element={<ExercisesPage />} />
-				<Route path='login' element={<Login />} />
-				<Route path='register' element={<Register />} />
-			</Routes>
-			<Footer />
+			<LanguageProvider>
+				<NavBar />
+				<Routes>
+					<Route path='/' element={<HomePage />} />
+					<Route path='menus' element={<MenuPage />} />
+					<Route path='exercises' element={<ExercisesPage />} />
+					<Route path='login' element={<Login />} />
+					<Route path='register' element={<Register />} />
+				</Routes>
+				<Footer />
+			</LanguageProvider>
 		</>
 	);
 }

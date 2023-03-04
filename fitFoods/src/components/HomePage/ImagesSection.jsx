@@ -1,5 +1,6 @@
 import style from './ImagesSection.module.css';
 
+/* eslint-disable react/prop-types */
 const ImagesSection = ({ img, text, reverse }) => {
 	return reverse ? (
 		<section>
