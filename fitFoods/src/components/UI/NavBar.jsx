@@ -1,9 +1,15 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ProvideText } from '../../context/Languaje';
+import Button from './Button';
+import FormProvider from './FormProvider';
 import LanguageSelector from './LanguageSelector';
+import LoginModal from './LoginModal';
+import ModalComponent from './ModalComponent';
 import styles from './NavBar.module.css';
 
 const NavBar = () => {
+	const [opened, setOpened] = useState(false);
 	return (
 		<>
 			<nav className={styles.wrapper}>
@@ -34,25 +40,25 @@ const NavBar = () => {
 						<ProvideText es='Menús' en='Menus' />
 					</NavLink>
 				</ul>
-				<NavLink
-					to='register'
-					className={({ isActive }) =>
-						isActive ? styles.selected : styles.navLink
-					}
-				>
-					<ProvideText es='Registro' en='Register' />
-				</NavLink>
-				<NavLink
+
+				{/* <NavLink
 					to='login'
 					className={({ isActive }) =>
 						isActive ? styles.selected : styles.navLink
 					}
 				>
 					<ProvideText es='Acceso' en='Log In' />
-				</NavLink>
+				</NavLink> */}
+
+				<Button onClick={() => setOpened(true)}>
+					<ProvideText es='Inciar Sesion' en='Log In' />
+				</Button>
 				<LanguageSelector />
 			</nav>
 			<div className={styles.greenLine}></div>
+			<ModalComponent opened={opened} setOpened={setOpened}>
+				<FormProvider />
+			</ModalComponent>
 		</>
 	);
 };
