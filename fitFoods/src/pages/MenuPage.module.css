@@ -1,0 +1,96 @@
+.titulo {
+	margin-top: 5rem;
+	font-family: 'Bebas Neue';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 64px;
+	line-height: 38px;
+	text-align: center;
+	text-transform: uppercase;
+	color: #ffffff;
+	margin-bottom: 2rem;
+}
+
+.rectangulo {
+	width: 1000px;
+	height: 1400px;
+	margin: auto;
+	background: #4d5864;
+	border-radius: 40px;
+}
+
+.titulocalorias {
+	padding-top: 4rem;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 32px;
+	line-height: 39px;
+	text-align: center;
+	color: #bbf246;
+}
+
+.input {
+	text-align: center;
+}
+
+.inputcalorias {
+	margin-top: -1rem;
+	width: 340px;
+	height: 35px;
+	background: #d9d9d9;
+	border-color: transparent;
+	border-radius: 6px;
+	text-align: center;
+}
+
+.inputcalorias:focus {
+	outline: solid 2px #bbf246;
+}
+
+.buttondiv {
+	margin-top: 2rem;
+	text-align: center;
+}
+
+.titulomenu {
+	text-align: center;
+	font-family: 'Montserrat';
+	margin-top: 3rem;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 29px;
+	text-align: center;
+	color: #ffffff;
+}
+
+.rectanguloreceta {
+	width: 801px;
+	height: 253px;
+	text-align: center;
+	margin: auto;
+	background: #192026;
+	border-radius: 20px;
+}
+
+.typemeal {
+	font-family: 'Bebas Neue';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 40px;
+	line-height: 48px;
+	padding: 15px 638px 0px 25px;
+	color: #ffffff;
+}
+
+.caloriesmeal {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 24px;
+	text-align: center;
+	padding: 0px 661px 166px 25px;
+	color: #ffffff;
+}
