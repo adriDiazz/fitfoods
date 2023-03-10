@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router';
 import { LanguageContext } from '../../context/Languaje';
 import style from './Body.module.css';
 
@@ -6,7 +7,10 @@ const BackBody = () => {
 	const [overName, setOverName] = useState('');
 	const [tooltipStyles, setTooltipStyles] = useState({});
 	const languageContext = useContext(LanguageContext);
-
+	const navigate = useNavigate();
+	const routeChange = route => {
+		navigate(route);
+	};
 	const handleOver = (es, en) => {
 		languageContext.userLanguage === 'es' ? setOverName(es) : setOverName(en);
 	};
@@ -70,6 +74,7 @@ const BackBody = () => {
 					onMouseOver={() => handleOver('Pantorrillas traseras', 'Back Calves')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
+					onClick={() => routeChange('calves')}
 					className={
 						overName === 'Pantorrillas traseras'
 							? style.over
@@ -92,6 +97,7 @@ const BackBody = () => {
 					onMouseOver={() => handleOver('Isquiotibiales', 'Hamstrings')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
+					onClick={() => routeChange('hamstrings')}
 					className={
 						overName === 'Isquiotibiales'
 							? style.over
@@ -114,6 +120,7 @@ const BackBody = () => {
 					onMouseOver={() => handleOver('Glúteos', 'Glutes')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
+					onClick={() => routeChange('glutes')}
 					className={
 						overName === 'Glúteos'
 							? style.over
@@ -147,6 +154,7 @@ const BackBody = () => {
 					onMouseOver={() => handleOver('Antebrazo trasero', 'Back Forearms')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
+					onClick={() => routeChange('forearms')}
 					className={
 						overName === 'Antebrazo trasero'
 							? style.over
@@ -169,6 +177,7 @@ const BackBody = () => {
 					onMouseOver={() => handleOver('Tríceps', 'Triceps')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
+					onClick={() => routeChange('triceps')}
 					className={
 						overName === 'Tríceps'
 							? style.over
@@ -191,6 +200,7 @@ const BackBody = () => {
 					onMouseOver={() => handleOver('Espalda baja', 'Lower Back')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
+					onClick={() => routeChange('back')}
 					className={
 						overName === 'Espalda baja'
 							? style.over
@@ -209,6 +219,7 @@ const BackBody = () => {
 					onMouseOver={() => handleOver('Dorsales traseros', 'Back Lats')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
+					onClick={() => routeChange('lats')}
 					className={
 						overName === 'Dorsales traseros'
 							? style.over
@@ -242,6 +253,7 @@ const BackBody = () => {
 					onMouseOver={() => handleOver('Trapezio trasero', 'Back Traps')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
+					onClick={() => routeChange('traps')}
 					className={
 						overName === 'Trapezio trasero'
 							? style.over
@@ -271,6 +283,7 @@ const BackBody = () => {
 					onMouseOver={() => handleOver('Hombros traseros', 'Back Shoulders')}
 					onMouseLeave={() => handleLeave()}
 					onMouseMove={e => handleStilos(e)}
+					onClick={() => routeChange('shoulders')}
 					className={
 						overName === 'Hombros traseros'
 							? style.over
