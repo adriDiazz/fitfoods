@@ -1,5 +1,6 @@
 import style from './MenuPage.module.css';
 import Button from '../components/UI/Button';
+import Card from '../components/MenuPage/Card';
 
 const MenuPage = () => {
 	return (
@@ -21,10 +22,7 @@ const MenuPage = () => {
 					<Button>Get your Menu</Button>
 				</div>
 				<p className={style.titulomenu}>Menú plan for today: 3014 calories</p>
-				<div className={style.rectanguloreceta}>
-					<h2 className={style.typemeal}>Breakfast</h2>
-					<span className={style.caloriesmeal}>Calorias</span>
-				</div>
+				<Card />
 			</div>
 		</div>
 	);

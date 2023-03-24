@@ -61,31 +61,3 @@
 	text-align: center;
 	color: #ffffff;
 }
-
-.rectanguloreceta {
-	width: 85%;
-	height: 15.8rem;
-	text-align: center;
-	margin: auto;
-	background: #192026;
-	border-radius: 20px;
-}
-
-.typemeal {
-	font-style: normal;
-	font-weight: 400;
-	font-size: 40px;
-	line-height: 48px;
-	padding: 15px 638px 0px 25px;
-	color: #ffffff;
-}
-
-.caloriesmeal {
-	font-style: normal;
-	font-weight: 400;
-	font-size: 20px;
-	line-height: 24px;
-	text-align: center;
-	padding: 0px 661px 166px 25px;
-	color: #ffffff;
-}
