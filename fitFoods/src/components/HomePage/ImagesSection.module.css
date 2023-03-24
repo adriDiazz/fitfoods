@@ -32,3 +32,11 @@
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
 }
+
+@media screen and (max-width: 768px) {
+ 
+
+    .section img {
+        width: 80%;
+    }
+}

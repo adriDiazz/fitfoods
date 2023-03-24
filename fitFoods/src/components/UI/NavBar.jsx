@@ -8,12 +8,19 @@ import LoginModal from './LoginModal';
 import ModalComponent from './ModalComponent';
 import styles from './NavBar.module.css';
 
-const NavBar = () => {
+const NavBar = ({ mobile, setMobile }) => {
 	const [opened, setOpened] = useState(false);
+
 	return (
 		<>
 			<nav className={styles.wrapper}>
-				<img src='logo.svg' alt='fitfoods' />
+				<img
+					src='burguer.svg'
+					alt=''
+					className={styles.icon}
+					onClick={() => setMobile(!mobile)}
+				/>
+				<img src='logo.svg' alt='fitfoods' className={styles.logo} />
 				<ul className={styles.ul}>
 					<NavLink
 						to='/'
@@ -40,15 +47,6 @@ const NavBar = () => {
 						<ProvideText es='Menús' en='Menus' />
 					</NavLink>
 				</ul>
-
-				{/* <NavLink
-					to='login'
-					className={({ isActive }) =>
-						isActive ? styles.selected : styles.navLink
-					}
-				>
-					<ProvideText es='Acceso' en='Log In' />
-				</NavLink> */}
 
 				<Button onClick={() => setOpened(true)}>
 					<ProvideText es='Inciar Sesion' en='Log In' />
