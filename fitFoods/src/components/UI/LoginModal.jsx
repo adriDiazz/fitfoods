@@ -1,8 +1,12 @@
-import { useState } from 'react';
 import { ProvideText } from '../../context/Languaje';
 import Button from './Button';
 import style from './LoginModal.module.css';
+import LogoIcon from './Icons/LogoIcon';
+import TwIcon from './Icons/TwIcon';
+import InstaIcon from './Icons/InstaIcon';
+import FaceBookIcon from './Icons/FaceBookIcon';
 
+// eslint-disable-next-line react/prop-types
 function LoginModal({ setFormState }) {
 	return (
 		<div className={style.wrapper}>
@@ -14,13 +18,17 @@ function LoginModal({ setFormState }) {
 					/>
 				</h2>
 				<div className={style.social}>
-					<img src='instagram.svg' alt='' />
-					<img src='twitter.svg' alt='' />
-					<img src='facebook.svg' alt='' />
+					{/* <img src='instagram.svg' alt='' /> */}
+					<InstaIcon />
+					{/* <img src='twitter.svg' alt='' /> */}
+					<TwIcon />
+					{/* <img src='facebook.svg' alt='' /> */}
+					<FaceBookIcon />
 				</div>
 			</div>
 			<div className={style.right}>
-				<img src='logo.svg' alt='fitfoods' />
+				{/* <img src='logo.svg' alt='fitfoods' /> */}
+				<LogoIcon />
 				<form>
 					<input type='text' placeholder='Email' />
 					<input type='password' placeholder='Password' />

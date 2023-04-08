@@ -15,6 +15,7 @@
     width: 2rem;
     height: 3rem;
     cursor: pointer;
+    display: none;
 }
 
 .logo {
@@ -82,5 +83,9 @@
         display: none;
         flex-direction: column;
         gap: 1rem;
+    }
+
+    .icon{
+        display: block;
     }
 }

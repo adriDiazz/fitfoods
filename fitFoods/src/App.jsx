@@ -8,6 +8,7 @@ import Footer from './components/UI/Footer';
 import { LanguageProvider } from './context/Languaje';
 import MobileNavbar from './components/UI/MobileNavbar';
 import { useState } from 'react';
+import ExercisesListPage from './pages/ExercisesListPage';
 
 function App() {
 	const [mobile, setMobile] = useState(false);
@@ -19,7 +20,10 @@ function App() {
 				<Routes>
 					<Route path='/' element={<HomePage />} />
 					<Route path='menus' element={<MenuPage />} />
-					<Route path='exercises' element={<ExercisesPage />} />
+					<Route path='exercises'>
+						<Route path='' element={<ExercisesPage />} />
+						<Route path=':muscle' element={<ExercisesListPage />} />
+					</Route>
 				</Routes>
 				<Footer />
 			</LanguageProvider>

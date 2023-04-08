@@ -41,8 +41,8 @@ const BackBody = () => {
 	return (
 		<>
 			<svg
-				width='379'
-				height='663'
+				width='476'
+				height='855'
 				viewBox='0 0 379 663'
 				fill='none'
 				xmlns='http://www.w3.org/2000/svg'

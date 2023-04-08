@@ -7,6 +7,8 @@ import LanguageSelector from './LanguageSelector';
 import LoginModal from './LoginModal';
 import ModalComponent from './ModalComponent';
 import styles from './NavBar.module.css';
+import LogoIcon from './Icons/LogoIcon';
+import BurguerIcon from './Icons/BurguerIcon';
 
 const NavBar = ({ mobile, setMobile }) => {
 	const [opened, setOpened] = useState(false);
@@ -14,13 +16,14 @@ const NavBar = ({ mobile, setMobile }) => {
 	return (
 		<>
 			<nav className={styles.wrapper}>
-				<img
+				<BurguerIcon
 					src='burguer.svg'
 					alt=''
 					className={styles.icon}
 					onClick={() => setMobile(!mobile)}
 				/>
-				<img src='logo.svg' alt='fitfoods' className={styles.logo} />
+				{/* <img src='logo.svg' alt='fitfoods' className={styles.logo} /> */}
+				<LogoIcon />
 				<ul className={styles.ul}>
 					<NavLink
 						to='/'

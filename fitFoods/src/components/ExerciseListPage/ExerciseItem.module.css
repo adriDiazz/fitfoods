@@ -1,0 +1,47 @@
+.card {
+    width: 90%;
+    height: 100%;
+    padding: 2rem;
+    background-color: #384350;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.card p {
+    color: var(--green);
+}
+
+.card h3 {
+    color: var(--white);
+    font-size: x-large;
+}
+
+.card img {
+    width: 10rem;
+    height: 10rem;
+}
+
+.container {
+    width: 70%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 4rem;
+}
+
+.container video {
+    width: 20%;
+    height: 100%;
+}
+
+
+.btnWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 1rem;
+}
+/* https://media.musclewiki.com/media/uploads/videos/branded/male-barbell-bench-press-front.mp4#t=0.1 */
