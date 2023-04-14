@@ -1,5 +1,4 @@
 import Button from '../UI/Button';
-import ExerciseMedia from '../UI/ExerciseMedia';
 import style from './ExerciseItem.module.css';
 // eslint-disable-next-line react/prop-types
 const ExerciseItem = ({ exercise }) => {

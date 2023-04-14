@@ -12,7 +12,10 @@ function ExercisesListPage() {
 	return (
 		<div className={style.wrapper}>
 			<div className={style.top}>
-				<ArrowIcon onClick={() => window.history.back()} />
+				<ArrowIcon
+					className={style.pointer}
+					onClick={() => window.history.back()}
+				/>
 				<h3>
 					exercises <span style={{ color: '#fff' }}>{'>'}</span> {muscle}
 				</h3>

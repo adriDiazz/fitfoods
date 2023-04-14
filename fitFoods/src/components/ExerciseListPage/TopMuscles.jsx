@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import style from './TopMuscles.module.css';
-import { fetchMuscles, fetchExercises } from '../../utils/services';
+import { fetchMuscles } from '../../utils/services';
+import { useNavigate } from 'react-router-dom';
 
 const getMuscleId = (topMuscles, currentMuscle) => {
 	const muscleId = topMuscles.find(muscle => muscle.name === currentMuscle);
@@ -36,7 +37,11 @@ function TopMuscles({ muscle: currentMuscle, setMuscleId }) {
 				? 'Loading...'
 				: randomSixMuscles.map(muscle => {
 						return (
-							<li key={muscle.id} className={style.item}>
+							<li
+								onClick={() => window.location.replace(muscle.name)}
+								key={muscle.id}
+								className={style.item}
+							>
 								{muscle.name}
 							</li>
 						);

@@ -1,16 +1,23 @@
 .wrapper {
-    width: 90%;
-    display: flex;
-    padding-left: 2rem;
-    gap: 2rem;
+	width: 90%;
+	display: flex;
+	padding-left: 2rem;
+	gap: 2rem;
 }
 
 .item {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
-    background-color: #384350;
-    border-radius: 0.5rem;
-    color: #fff;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding: 1rem;
+	background-color: #384350;
+	border-radius: 0.5rem;
+	color: #fff;
+}
+
+.item:hover {
+	cursor: pointer;
+	border-color: var(--green);
+	border-width: 0.1rem;
+	border-style: solid;
 }
