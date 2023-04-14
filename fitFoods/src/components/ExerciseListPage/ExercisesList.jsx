@@ -16,11 +16,28 @@ function ExercisesList({ muscleId }) {
 
 	return (
 		<ul className={style.wrapper}>
-			{exercises.loading
-				? 'Loading...'
-				: exercises.data.map(exercise => {
-						return <ExerciseItem key={exercise.id} exercise={exercise} />;
-				  })}
+			{exercises.loading ? (
+				<div
+					style={{
+						display: 'flex',
+						justifyContent: 'center',
+						alignItems: 'center',
+						height: '90vh',
+						width: '90vw'
+					}}
+				>
+					<div className='lds-ring'>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</div>
+			) : (
+				exercises.data.map(exercise => {
+					return <ExerciseItem key={exercise.id} exercise={exercise} />;
+				})
+			)}
 		</ul>
 	);
 }
