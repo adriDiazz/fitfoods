@@ -21,3 +21,15 @@ export const fetchExercises = async (muscleId, setExercises) => {
 		setExercises({ loading: false, error: err, data: [] });
 	}
 };
+
+export const fetchFood = async setFood => {
+	try {
+		const response = await fetch('http://127.0.0.1:8000/api/food');
+		const data = await response.json();
+		console.log(data);
+		setFood({ loading: false, data });
+	} catch (err) {
+		console.log(err);
+		setFood({ loading: false, error: err, data: [] });
+	}
+};

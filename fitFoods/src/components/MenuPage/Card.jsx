@@ -1,15 +1,16 @@
 import style from './Card.module.css';
 
-const Card = () => {
+// eslint-disable-next-line react/prop-types
+const Card = ({ name, type, calories, url, grams }) => {
 	return (
 		<div>
 			<div className={style.rectanguloreceta}>
-				<h2 className={style.typemeal}>Breakfast</h2>
-				<span className={style.caloriesmeal}>200 Calorias</span>
+				<h2 className={style.typemeal}>{type}</h2>
+				<span className={style.caloriesmeal}>{calories} Calorías</span>
 				<div className={style.informacion}>
-					<img className={style.imagen}></img>
-					<p className={style.nombrereceta}> Avocado & Smoked Salmon Omelet</p>
-					<p className={style.cantidad}>1</p>
+					<img className={style.imagen} src={url}></img>
+					<p className={style.nombrereceta}> {name}</p>
+					<p className={style.cantidad}>{grams}</p>
 				</div>
 			</div>
 		</div>
