@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 const getMuscleId = (topMuscles, currentMuscle) => {
 	const muscleId = topMuscles.find(muscle => muscle.name === currentMuscle);
-	console.log(muscleId);
 	return muscleId;
 };
 
@@ -13,11 +12,12 @@ const getMuscleId = (topMuscles, currentMuscle) => {
 function TopMuscles({ muscle: currentMuscle, setMuscleId }) {
 	const [topMuscles, setTopMuscles] = useState({
 		loading: true,
-		data: []
+		data: [],
+		error: null
 	});
 
 	const muscleId = getMuscleId(topMuscles.data, currentMuscle);
-	console.log(muscleId);
+
 	setMuscleId(muscleId?.id);
 
 	useEffect(() => {
@@ -30,6 +30,10 @@ function TopMuscles({ muscle: currentMuscle, setMuscleId }) {
 	const randomSixMuscles = filteredMuscles
 		.sort(() => Math.random() - 0.5)
 		.slice(0, 6);
+
+	if (topMuscles.error) {
+		return <div>Error: {topMuscles.error.message}</div>;
+	}
 
 	return (
 		<ul className={style.wrapper}>

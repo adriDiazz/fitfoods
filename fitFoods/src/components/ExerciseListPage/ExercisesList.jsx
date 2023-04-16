@@ -7,12 +7,17 @@ import style from './ExercisesList.module.css';
 function ExercisesList({ muscleId }) {
 	const [exercises, setExercises] = useState({
 		loading: true,
-		data: []
+		data: [],
+		error: null
 	});
 
 	useEffect(() => {
 		fetchExercises(muscleId, setExercises);
 	}, [muscleId]);
+
+	if (exercises.error) {
+		return <div>Error: {exercises.error.message}</div>;
+	}
 
 	return (
 		<ul className={style.wrapper}>

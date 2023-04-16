@@ -43,8 +43,8 @@ const FrontBody = () => {
 		<>
 			<div style={tooltipStyles}>{overName}</div>
 			<svg
-				width='476'
-				height='855'
+				width='376'
+				height='755'
 				viewBox='0 0 376 655'
 				fill='none'
 				xmlns='http://www.w3.org/2000/svg'

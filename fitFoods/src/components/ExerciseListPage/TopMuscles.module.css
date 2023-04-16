@@ -17,7 +17,5 @@
 
 .item:hover {
 	cursor: pointer;
-	border-color: var(--green);
-	border-width: 0.1rem;
-	border-style: solid;
+	border: 1px solid var(--green);
 }
