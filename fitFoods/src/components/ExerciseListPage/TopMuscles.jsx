@@ -2,6 +2,11 @@ import { useEffect, useState } from 'react';
 import style from './TopMuscles.module.css';
 import { fetchMuscles } from '../../utils/services';
 import { useNavigate } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 const getMuscleId = (topMuscles, currentMuscle) => {
 	const muscleId = topMuscles.find(muscle => muscle.name === currentMuscle);
@@ -15,6 +20,7 @@ function TopMuscles({ muscle: currentMuscle, setMuscleId }) {
 		data: [],
 		error: null
 	});
+	const [windowSize, setWindowSize] = useState(window.innerWidth);
 
 	const muscleId = getMuscleId(topMuscles.data, currentMuscle);
 
@@ -22,6 +28,16 @@ function TopMuscles({ muscle: currentMuscle, setMuscleId }) {
 
 	useEffect(() => {
 		fetchMuscles(setTopMuscles);
+
+		const handleResize = () => {
+			setWindowSize(window.innerWidth);
+		};
+
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
 	}, []);
 
 	const filteredMuscles = topMuscles.data.filter(
@@ -37,19 +53,29 @@ function TopMuscles({ muscle: currentMuscle, setMuscleId }) {
 
 	return (
 		<ul className={style.wrapper}>
-			{topMuscles.loading
-				? 'Loading...'
-				: randomSixMuscles.map(muscle => {
+			{topMuscles.loading ? (
+				'Loading...'
+			) : (
+				<Swiper
+					spaceBetween={50}
+					slidesPerView={5}
+					modules={[Navigation]}
+					navigation={!(windowSize < 768)}
+				>
+					{randomSixMuscles.map(muscle => {
 						return (
-							<li
-								onClick={() => window.location.replace(muscle.name)}
-								key={muscle.id}
-								className={style.item}
-							>
-								{muscle.name}
-							</li>
+							<SwiperSlide key={muscle.id}>
+								<li
+									className={style.item}
+									style={{ backgroundImage: `url(${muscle.image})` }}
+								>
+									{muscle.name}
+								</li>
+							</SwiperSlide>
 						);
-				  })}
+					})}
+				</Swiper>
+			)}
 		</ul>
 	);
 }
