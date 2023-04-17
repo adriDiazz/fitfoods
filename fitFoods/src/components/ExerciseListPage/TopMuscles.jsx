@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import style from './TopMuscles.module.css';
 import { fetchMuscles } from '../../utils/services';
-import { useNavigate } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 
@@ -66,8 +65,9 @@ function TopMuscles({ muscle: currentMuscle, setMuscleId }) {
 						return (
 							<SwiperSlide key={muscle.id}>
 								<li
+									onClick={() => window.location.replace(muscle.name)}
+									key={muscle.id}
 									className={style.item}
-									style={{ backgroundImage: `url(${muscle.image})` }}
 								>
 									{muscle.name}
 								</li>
