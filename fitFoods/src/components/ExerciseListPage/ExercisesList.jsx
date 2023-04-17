@@ -11,6 +11,12 @@ function ExercisesList({ muscleId }) {
 		error: null
 	});
 
+	const [selectedExercise, setSelectedExercise] = useState(null); // nuevo estado
+
+	const handleExerciseClick = exercise => {
+		setSelectedExercise(exercise);
+	};
+
 	useEffect(() => {
 		fetchExercises(muscleId, setExercises);
 	}, [muscleId]);
@@ -40,8 +46,22 @@ function ExercisesList({ muscleId }) {
 				</div>
 			) : (
 				exercises.data.map(exercise => {
-					return <ExerciseItem key={exercise.id} exercise={exercise} />;
+					return (
+						<ExerciseItem
+							key={exercise.id}
+							exercise={exercise}
+							onClick={() => handleExerciseClick(exercise)} // Pasamos la función handleExerciseClick como onClick
+						/>
+					);
 				})
+			)}
+			{selectedExercise && (
+				<div className={style.modal}>
+					<div>{selectedExercise.name}</div>
+					<div>{selectedExercise.difficulty}</div>
+					<div>{selectedExercise.description}</div>
+					<button onClick={() => setSelectedExercise(null)}>Close</button>
+				</div>
 			)}
 		</ul>
 	);

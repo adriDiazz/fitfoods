@@ -1,7 +1,7 @@
 import Button from '../UI/Button';
 import style from './ExerciseItem.module.css';
 // eslint-disable-next-line react/prop-types
-const ExerciseItem = ({ exercise }) => {
+const ExerciseItem = ({ exercise, onClick }) => {
 	console.log(exercise);
 	return (
 		<li className={style.card}>
@@ -14,7 +14,7 @@ const ExerciseItem = ({ exercise }) => {
 			</div>
 
 			<div className={style.btnWrapper}>
-				<Button>Save to routine</Button>
+				<Button onClick={onClick}>Show more</Button>
 			</div>
 		</li>
 	);
