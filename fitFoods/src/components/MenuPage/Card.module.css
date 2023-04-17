@@ -33,6 +33,7 @@
 	display: flex;
 }
 
+
 .imagen {
 	background: #a8a8a8;
 	width: 100px;
@@ -49,6 +50,7 @@
 	font-size: 32px;
 	margin-top: 50px;
 	margin-left: 40px;
+
 }
 
 .cantidad {

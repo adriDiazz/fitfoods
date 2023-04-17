@@ -16,7 +16,7 @@ function ExercisesListPage() {
 					className={style.pointer}
 					onClick={() => window.history.back()}
 				/>
-				<h3>
+				<h3 className={style.position}>
 					exercises <span style={{ color: '#fff' }}>{'>'}</span> {muscle}
 				</h3>
 			</div>

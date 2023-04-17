@@ -3,6 +3,7 @@
 	min-height: 100vh;
 
 }
+
 .top {
 	height: 10%;
 	color: var(--green);
@@ -16,4 +17,9 @@
 
 .pointer {
 	cursor: pointer;
+}
+
+.position {
+	font-family: Arial, Helvetica, sans-serif;
+
 }

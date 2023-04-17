@@ -22,6 +22,18 @@ export const fetchExercises = async (muscleId, setExercises) => {
 	}
 };
 
+export const findSteps = async (exerciseId, setSteps) => {
+	try {
+		const response = await fetch(
+			`http://127.0.0.1:8000/api/steps/${exerciseId}`
+		);
+		const data = await response.json();
+		setSteps({ loading: false, data });
+	} catch (err) {
+		setSteps({ loading: false, error: err, data: [] });
+	}
+};
+
 export const fetchFood = async setFood => {
 	try {
 		const response = await fetch('http://127.0.0.1:8000/api/food');

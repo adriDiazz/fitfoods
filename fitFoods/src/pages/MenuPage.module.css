@@ -11,11 +11,19 @@
 }
 
 .rectangulo {
-	width: 70vw;
-	height: 1400px;
+	width: 70%;
 	margin: auto;
+	height: auto;
+	padding-bottom: 50px;
 	background: #4d5864;
 	border-radius: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 200px;
+	/* altura mínima */
+	max-height: max-content;
+	/* altura máxima */
 }
 
 .titulocalorias {

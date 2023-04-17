@@ -11,7 +11,7 @@ function ExercisesList({ muscleId }) {
 		error: null
 	});
 
-	const [selectedExercise, setSelectedExercise] = useState(null); // nuevo estado
+	const [selectedExercise, setSelectedExercise] = useState(null);
 
 	const handleExerciseClick = exercise => {
 		setSelectedExercise(exercise);
@@ -50,18 +50,27 @@ function ExercisesList({ muscleId }) {
 						<ExerciseItem
 							key={exercise.id}
 							exercise={exercise}
-							onClick={() => handleExerciseClick(exercise)} // Pasamos la función handleExerciseClick como onClick
+							onClick={() => handleExerciseClick(exercise)}
 						/>
 					);
 				})
 			)}
 			{selectedExercise && (
-				<div className={style.modal}>
-					<div>{selectedExercise.name}</div>
-					<div>{selectedExercise.difficulty}</div>
-					<div>{selectedExercise.description}</div>
-					<button onClick={() => setSelectedExercise(null)}>Close</button>
-				</div>
+				<>
+					<div
+						className={style.overlay}
+						onClick={() => setSelectedExercise(null)}
+					></div>
+					<div className={style.modal}>
+						<button onClick={() => setSelectedExercise(null)}>X</button>
+						<h1>{selectedExercise.name}</h1>
+						<span>{selectedExercise.difficulty}</span>
+						<div className={style.steps}>
+							{selectedExercise.descripcion}STEPS:
+						</div>
+						<video src={selectedExercise.url}></video>
+					</div>
+				</>
 			)}
 		</ul>
 	);

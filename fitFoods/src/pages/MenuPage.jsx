@@ -97,7 +97,7 @@ const MenuPage = () => {
 					{' '}
 					<Button onClick={handleMenu}>Get your Menu</Button>
 				</div>
-				<p className={style.titulomenu}>Menú plan for today: 3014 calories</p>
+				<p className={style.titulomenu}>Menú plan for today</p>
 				{isClicked && food.loading ? (
 					<div
 						style={{
