@@ -23,6 +23,7 @@ const MenuPage = () => {
 	};
 
 	useEffect(() => {
+		setMenu([]);
 		if (food.data.length > 0) {
 			function shuffleArray(array) {
 				for (let i = array.length - 1; i > 0; i--) {
@@ -72,6 +73,24 @@ const MenuPage = () => {
 				sortedArr.push(element);
 			});
 			console.log(sortedArr);
+			sortedArr.map(e => {
+				let percentage = 0;
+				if (e.type === 'breakfast') {
+					percentage = 0.2;
+				}
+				if (e.type === 'lunch') {
+					percentage = 0.4;
+				}
+				if (e.type === 'dinner') {
+					percentage = 0.3;
+				}
+				if (e.type === 'snack') {
+					percentage = 0.1;
+				}
+
+				e.grams = Math.round((calories * percentage * 100) / e.calories);
+				return e;
+			});
 			setMenu(menu => [...menu, ...sortedArr]);
 		}
 	}, [food]);
@@ -97,7 +116,7 @@ const MenuPage = () => {
 					{' '}
 					<Button onClick={handleMenu}>Get your Menu</Button>
 				</div>
-				<p className={style.titulomenu}>Menú plan for today</p>
+				<p className={style.titulomenu}>Menú plan for today: {calories} calories</p>
 				{isClicked && food.loading ? (
 					<div
 						style={{
@@ -117,20 +136,6 @@ const MenuPage = () => {
 					</div>
 				) : menu.length > 0 ? (
 					menu.map(m => {
-						let percentage = 0;
-						if (m.type === 'breakfast') {
-							percentage = 0.2;
-						}
-						if (m.type === 'lunch') {
-							percentage = 0.4;
-						}
-						if (m.type === 'dinner') {
-							percentage = 0.3;
-						}
-						if (m.type === 'snack') {
-							percentage = 0.1;
-						}
-						const grams = (calories * percentage * 100) / m.calories;
 						return (
 							<Card
 								key={m.id}
@@ -138,7 +143,7 @@ const MenuPage = () => {
 								type={m.type}
 								calories={m.calories}
 								url={m.url.replace('"', '')}
-								grams={Math.round(grams)}
+								grams={m.grams}
 							/>
 						);
 					})
