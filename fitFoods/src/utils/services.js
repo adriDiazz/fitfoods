@@ -45,3 +45,20 @@ export const fetchFood = async setFood => {
 		setFood({ loading: false, error: err, data: [] });
 	}
 };
+
+export const addMenu = async data => {
+	try {
+		const response = await fetch('http://127.0.0.1:8000/api/addmenu', {
+			method: 'POST', // or 'PUT'
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(data)
+		});
+
+		const result = await response.json();
+		console.log('Success:', result);
+	} catch (error) {
+		console.error('Error:', error);
+	}
+};

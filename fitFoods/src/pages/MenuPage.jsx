@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import style from './MenuPage.module.css';
 import Button from '../components/UI/Button';
 import Card from '../components/MenuPage/Card';
-import { fetchFood } from '../utils/services';
+import { addMenu, fetchFood } from '../utils/services';
 
 const MenuPage = () => {
 	const [food, setFood] = useState({
@@ -92,6 +92,12 @@ const MenuPage = () => {
 				return e;
 			});
 			setMenu(menu => [...menu, ...sortedArr]);
+			// TODO: Guardar cuando se presione el botón
+			addMenu({
+				name: 'Test',
+				user_id: 1,
+				food: sortedArr
+			});
 		}
 	}, [food]);
 	if (isClicked && food.error) {
@@ -116,7 +122,9 @@ const MenuPage = () => {
 					{' '}
 					<Button onClick={handleMenu}>Get your Menu</Button>
 				</div>
-				<p className={style.titulomenu}>Menú plan for today: {calories} calories</p>
+				<p className={style.titulomenu}>
+					Menú plan for today: {calories} calories
+				</p>
 				{isClicked && food.loading ? (
 					<div
 						style={{
