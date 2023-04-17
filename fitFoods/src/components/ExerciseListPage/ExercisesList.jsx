@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchExercises } from '../../utils/services';
+import { fetchExercises, findSteps } from '../../utils/services';
 import ExerciseItem from './ExerciseItem';
 import style from './ExercisesList.module.css';
 
@@ -11,7 +11,15 @@ function ExercisesList({ muscleId }) {
 		error: null
 	});
 
+	const [steps, setSteps] = useState({
+		loading: true,
+		data: [],
+		error: null
+	});
+
 	const [selectedExercise, setSelectedExercise] = useState(null);
+
+	const [selectedSteps, setSelectedSteps] = useState(null);
 
 	const handleExerciseClick = exercise => {
 		setSelectedExercise(exercise);
@@ -20,6 +28,10 @@ function ExercisesList({ muscleId }) {
 	useEffect(() => {
 		fetchExercises(muscleId, setExercises);
 	}, [muscleId]);
+
+	useEffect(() => {
+		findSteps(handleExerciseClick.id, setSteps);
+	});
 
 	if (exercises.error) {
 		return <div>Error: {exercises.error.message}</div>;
@@ -65,9 +77,7 @@ function ExercisesList({ muscleId }) {
 						<button onClick={() => setSelectedExercise(null)}>X</button>
 						<h1>{selectedExercise.name}</h1>
 						<span>{selectedExercise.difficulty}</span>
-						<div className={style.steps}>
-							{selectedExercise.descripcion}STEPS:
-						</div>
+						<div className={style.steps}>{selectedSteps.descripcion}STEPS:</div>
 						<video src={selectedExercise.url}></video>
 					</div>
 				</>

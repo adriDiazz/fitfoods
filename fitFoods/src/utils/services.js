@@ -25,7 +25,7 @@ export const fetchExercises = async (muscleId, setExercises) => {
 export const findSteps = async (exerciseId, setSteps) => {
 	try {
 		const response = await fetch(
-			`http://127.0.0.1:8000/api/steps/${exerciseId}`
+			`http://127.0.0.1:8000/api/exercises/steps/${exerciseId}`
 		);
 		const data = await response.json();
 		setSteps({ loading: false, data });
