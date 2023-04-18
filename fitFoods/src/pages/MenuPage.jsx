@@ -22,6 +22,10 @@ const MenuPage = () => {
 		setCalories(e.target.value);
 	};
 
+	const handleSave = () => {
+		addMenu({ name: 'Prueba', user_id: 1, food: menu });
+	};
+
 	useEffect(() => {
 		setMenu([]);
 		if (food.data.length > 0) {
@@ -92,12 +96,6 @@ const MenuPage = () => {
 				return e;
 			});
 			setMenu(menu => [...menu, ...sortedArr]);
-			// TODO: Guardar cuando se presione el botón
-			addMenu({
-				name: 'Test',
-				user_id: 1,
-				food: sortedArr
-			});
 		}
 	}, [food]);
 	if (isClicked && food.error) {
@@ -143,18 +141,21 @@ const MenuPage = () => {
 						</div>
 					</div>
 				) : menu.length > 0 ? (
-					menu.map(m => {
-						return (
-							<Card
-								key={m.id}
-								name={m.name}
-								type={m.type}
-								calories={m.calories}
-								url={m.url.replace('"', '')}
-								grams={m.grams}
-							/>
-						);
-					})
+					<div>
+						<Button onClick={handleSave}>Save</Button>
+						{menu.map(m => {
+							return (
+								<Card
+									key={m.id}
+									name={m.name}
+									type={m.type}
+									calories={m.calories}
+									url={m.url.replace('"', '')}
+									grams={m.grams}
+								/>
+							);
+						})}
+					</div>
 				) : (
 					''
 				)}

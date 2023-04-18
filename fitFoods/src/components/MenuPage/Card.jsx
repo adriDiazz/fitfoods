@@ -1,7 +1,13 @@
+import { useState } from 'react';
 import style from './Card.module.css';
+import { classifyRecipe } from '../../utils/services';
 
 // eslint-disable-next-line react/prop-types
 const Card = ({ name, type, calories, url, grams }) => {
+	const [recipeClass, setRecipeClass] = useState('');
+	const handleClassify = () => {
+		classifyRecipe({ algorithm: 'Random Forest', title: name }, setRecipeClass);
+	};
 	return (
 		<div>
 			<div className={style.rectanguloreceta}>
@@ -14,6 +20,8 @@ const Card = ({ name, type, calories, url, grams }) => {
 					<p className={style.nombrereceta}> {name}</p>
 					<p className={style.cantidad}>{grams} Grams</p>
 				</div>
+				<button onClick={handleClassify}>Classify</button>
+				<span className={style.caloriesmeal}>{recipeClass}</span>
 			</div>
 		</div>
 	);
