@@ -42,9 +42,6 @@ function TopMuscles({ muscle: currentMuscle, setMuscleId }) {
 	const filteredMuscles = topMuscles.data.filter(
 		muscle => muscle.name !== currentMuscle
 	);
-	const randomSixMuscles = filteredMuscles
-		.sort(() => Math.random() - 0.5)
-		.slice(0, 6);
 
 	if (topMuscles.error) {
 		return <div>Error: {topMuscles.error.message}</div>;
@@ -61,7 +58,7 @@ function TopMuscles({ muscle: currentMuscle, setMuscleId }) {
 					modules={[Navigation]}
 					navigation={!(windowSize < 768)}
 				>
-					{randomSixMuscles.map(muscle => {
+					{filteredMuscles.map(muscle => {
 						return (
 							<SwiperSlide key={muscle.id}>
 								<li

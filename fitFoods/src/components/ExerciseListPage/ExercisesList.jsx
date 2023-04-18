@@ -1,10 +1,16 @@
 import { useEffect, useState } from 'react';
-import { fetchExercises, findSteps } from '../../utils/services';
+import { fetchExercises, fetchSteps } from '../../utils/services';
 import ExerciseItem from './ExerciseItem';
 import style from './ExercisesList.module.css';
+import ModalComponent from '../UI/ModalComponent';
+import ExerciseModal from './ExerciseModal';
 
 // eslint-disable-next-line react/prop-types
 function ExercisesList({ muscleId }) {
+	const [open, setOpen] = useState({
+		opened: false,
+		exercise: null
+	});
 	const [exercises, setExercises] = useState({
 		loading: true,
 		data: [],
@@ -17,21 +23,15 @@ function ExercisesList({ muscleId }) {
 		error: null
 	});
 
-	const [selectedExercise, setSelectedExercise] = useState(null);
-
-	const [selectedSteps, setSelectedSteps] = useState(null);
-
-	const handleExerciseClick = exercise => {
-		setSelectedExercise(exercise);
-	};
-
 	useEffect(() => {
 		fetchExercises(muscleId, setExercises);
 	}, [muscleId]);
 
 	useEffect(() => {
-		findSteps(handleExerciseClick.id, setSteps);
-	});
+		if (open.opened) {
+			fetchSteps(open.exercise.id, setSteps);
+		}
+	}, [open.exercise]);
 
 	if (exercises.error) {
 		return <div>Error: {exercises.error.message}</div>;
@@ -62,12 +62,22 @@ function ExercisesList({ muscleId }) {
 						<ExerciseItem
 							key={exercise.id}
 							exercise={exercise}
-							onClick={() => handleExerciseClick(exercise)}
+							onClick={() => {
+								setOpen({
+									opened: true,
+									exercise
+								});
+							}}
 						/>
 					);
 				})
 			)}
-			{selectedExercise && (
+			{open.opened && (
+				<ModalComponent opened={open} setOpened={setOpen}>
+					<ExerciseModal exercise={open.exercise} steps={steps} />
+				</ModalComponent>
+			)}
+			{/* {selectedExercise && (
 				<>
 					<div
 						className={style.overlay}
@@ -81,7 +91,7 @@ function ExercisesList({ muscleId }) {
 						<video src={selectedExercise.url}></video>
 					</div>
 				</>
-			)}
+			)} */}
 		</ul>
 	);
 }
