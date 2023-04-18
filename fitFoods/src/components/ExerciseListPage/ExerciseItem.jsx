@@ -14,7 +14,9 @@ const ExerciseItem = ({ exercise, onClick }) => {
 			</div>
 
 			<div className={style.btnWrapper}>
-				<Button onClick={onClick}>Show more</Button>
+				<Button onClick={onClick} className={style.btn}>
+					Show more
+				</Button>
 			</div>
 		</li>
 	);

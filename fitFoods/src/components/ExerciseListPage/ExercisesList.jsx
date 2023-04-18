@@ -74,7 +74,11 @@ function ExercisesList({ muscleId }) {
 			)}
 			{open.opened && (
 				<ModalComponent opened={open} setOpened={setOpen}>
-					<ExerciseModal exercise={open.exercise} steps={steps} />
+					<ExerciseModal
+						exercise={open.exercise}
+						steps={steps}
+						loading={steps.loading}
+					/>
 				</ModalComponent>
 			)}
 			{/* {selectedExercise && (
