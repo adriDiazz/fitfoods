@@ -63,7 +63,7 @@ export const addMenu = async data => {
 	}
 };
 
-export const classifyRecipe = async (data, setRecipeCategory) => {
+export const classifyRecipe = async (data, setRecipeCategory, setIsLoading) => {
 	try {
 		const response = await fetch('http://127.0.0.1:8000/api/classify', {
 			method: 'POST',
@@ -83,6 +83,7 @@ export const classifyRecipe = async (data, setRecipeCategory) => {
 		) {
 			result.pred = 'Error. Try again';
 		}
+		setIsLoading(false);
 		setRecipeCategory(result.pred);
 		console.log('Success:', result);
 	} catch (error) {

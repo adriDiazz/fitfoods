@@ -147,7 +147,7 @@ const MenuPage = () => {
 							return (
 								<Card
 									key={m.id}
-									name={m.name}
+									name={m.name.replace('"', '')}
 									type={m.type}
 									calories={m.calories}
 									url={m.url.replace('"', '')}

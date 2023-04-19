@@ -5,8 +5,14 @@ import { classifyRecipe } from '../../utils/services';
 // eslint-disable-next-line react/prop-types
 const Card = ({ name, type, calories, url, grams }) => {
 	const [recipeClass, setRecipeClass] = useState('');
+	const [isLoading, setIsLoading] = useState(false);
 	const handleClassify = () => {
-		classifyRecipe({ algorithm: 'Random Forest', title: name }, setRecipeClass);
+		setIsLoading(true);
+		classifyRecipe(
+			{ algorithm: 'Random Forest', title: name },
+			setRecipeClass,
+			setIsLoading
+		);
 	};
 	return (
 		<div>
@@ -21,7 +27,26 @@ const Card = ({ name, type, calories, url, grams }) => {
 					<p className={style.cantidad}>{grams} Grams</p>
 				</div>
 				<button onClick={handleClassify}>Classify</button>
-				<span className={style.caloriesmeal}>{recipeClass}</span>
+				{isLoading ? (
+					<div
+						style={{
+							display: 'flex',
+							justifyContent: 'center',
+							alignItems: 'center',
+							height: '0vh',
+							width: '20vh'
+						}}
+					>
+						<div className={style.classLdsRing}>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+						</div>
+					</div>
+				) : (
+					<span className={style.caloriesmeal}>{recipeClass}</span>
+				)}
 			</div>
 		</div>
 	);
