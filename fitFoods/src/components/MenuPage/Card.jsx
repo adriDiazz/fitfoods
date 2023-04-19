@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import style from './Card.module.css';
 import { classifyRecipe } from '../../utils/services';
+import { ProvideText } from '../../context/Languaje';
 
 // eslint-disable-next-line react/prop-types
 const Card = ({ name, type, calories, url, grams }) => {
@@ -25,8 +26,11 @@ const Card = ({ name, type, calories, url, grams }) => {
 					<img className={style.imagen} src={url}></img>
 					<p className={style.nombrereceta}> {name}</p>
 					<p className={style.cantidad}>{grams} Grams</p>
+					<button className={style.button} onClick={handleClassify}>
+						<ProvideText en={'Classify'} es={'Clasificar'} />
+					</button>
 				</div>
-				<button onClick={handleClassify}>Classify</button>
+
 				{isLoading ? (
 					<div
 						style={{

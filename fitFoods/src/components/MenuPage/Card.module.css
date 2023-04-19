@@ -1,10 +1,14 @@
 .Card {
 	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
 }
 
 .rectanguloreceta {
 	width: 85%;
-	height: 15.8rem;
+	min-height: 15.8rem;
 	margin: auto;
 	background: #192026;
 	border-radius: 20px;
@@ -13,17 +17,27 @@
 .typemeal {
 	font-style: normal;
 	font-weight: 400;
-	font-size: 40px;
+	font-size: 2rem;
 	line-height: 48px;
 	padding: 15px 0px 0px 25px;
 	color: #ffffff;
 	margin-bottom: 0px;
 }
 
+.button {
+	background: #bbf246;
+	border-radius: 20px;
+	border: none;
+	padding: 10px 20px;
+	font-size: 20px;
+	color: #192026;
+	margin: 10px 0px 0px 25px;
+}
+
 .caloriesmeal {
 	font-style: normal;
 	font-weight: 400;
-	font-size: 20px;
+	font-size: 1.3rem;
 	line-height: 24px;
 	padding-left: 25px;
 	color: #ffffff;
@@ -31,6 +45,11 @@
 
 .informacion {
 	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	flex-wrap: wrap;
 }
 
 .imagen {
@@ -46,16 +65,14 @@
 
 .nombrereceta {
 	color: white;
-	font-size: 32px;
-	margin-top: 50px;
-	margin-left: 40px;
+	font-size: 1.5rem;
+	width: 40%;
 }
 
 .cantidad {
 	color: white;
 	font-size: 30px;
-	margin-left: 200px;
-	margin-top: 51px;
+
 }
 
 .classLdsRing {
@@ -88,6 +105,51 @@
 
 .classLdsRing div:nth-child(3) {
 	animation-delay: -0.15s;
+}
+
+@media screen and (max-width: 768px) {
+	.informacion {
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+	}
+
+	.imagen {
+		margin-left: 0px;
+		width: 80%;
+		height: 80%;
+	}
+
+	.rectanguloreceta {
+		width: 90%;
+	}
+
+	.typemeal {
+		font-size: 1.5rem;
+	}
+
+	.caloriesmeal {
+		font-size: 1rem;
+	}
+
+	.button {
+		font-size: 1rem;
+	}
+
+	.nombrereceta {
+		font-size: 1rem;
+		width: 100%;
+	}
+
+	.cantidad {
+		font-size: 1rem;
+	}
+
+	.button {
+		width: 100%;
+		margin-left: 0px;
+	}
+	
 }
 
 @keyframes lds-ring {

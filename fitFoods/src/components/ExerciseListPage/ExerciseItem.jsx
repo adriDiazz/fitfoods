@@ -6,7 +6,12 @@ const ExerciseItem = ({ exercise, onClick }) => {
 	return (
 		<li className={style.card}>
 			<div className={style.container}>
-				<video src={exercise.url}></video>
+				{exercise.url === 'None' ? (
+					<img src='no-image.jpeg' alt='noImage avaible' />
+				) : (
+					<video src={exercise.url}></video>
+				)}
+				{/* <video src={exercise.url}></video> */}
 				<div className=''>
 					<h3>{exercise.name}</h3>
 					<p>{exercise.difficulty}</p>

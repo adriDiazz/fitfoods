@@ -24,6 +24,7 @@ function App() {
 						<Route path='' element={<ExercisesPage />} />
 						<Route path=':muscle' element={<ExercisesListPage />} />
 					</Route>
+					<Route path='*' element={<h1>404</h1>} />
 				</Routes>
 				<Footer />
 			</LanguageProvider>

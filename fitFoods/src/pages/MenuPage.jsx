@@ -3,6 +3,7 @@ import style from './MenuPage.module.css';
 import Button from '../components/UI/Button';
 import Card from '../components/MenuPage/Card';
 import { addMenu, fetchFood } from '../utils/services';
+import { ProvideText } from '../context/Languaje';
 
 const MenuPage = () => {
 	const [food, setFood] = useState({
@@ -103,9 +104,19 @@ const MenuPage = () => {
 	}
 	return (
 		<div>
-			<h2 className={style.titulo}>Put your diet on autopilot</h2>
+			<h2 className={style.titulo}>
+				<ProvideText
+					en={'Put your diet on autopilot'}
+					es={'Pon tu dieta en automatico'}
+				/>
+			</h2>
 			<div className={style.rectangulo}>
-				<h3 className={style.titulocalorias}>Calories you want to eat</h3>
+				<h3 className={style.titulocalorias}>
+					<ProvideText
+						en={'Calories you want to eat'}
+						es={'Calorias que quieres comer'}
+					/>
+				</h3>
 				<div className={style.input}>
 					{' '}
 					<input
@@ -118,7 +129,9 @@ const MenuPage = () => {
 				</div>
 				<div className={style.buttondiv}>
 					{' '}
-					<Button onClick={handleMenu}>Get your Menu</Button>
+					<Button onClick={handleMenu}>
+						<ProvideText en={'Generate menu'} es={'Generar menú'} />
+					</Button>
 				</div>
 				<p className={style.titulomenu}>
 					Menú plan for today: {calories} calories
@@ -142,7 +155,6 @@ const MenuPage = () => {
 					</div>
 				) : menu.length > 0 ? (
 					<div>
-						<Button onClick={handleSave}>Save</Button>
 						{menu.map(m => {
 							return (
 								<Card
@@ -155,6 +167,11 @@ const MenuPage = () => {
 								/>
 							);
 						})}
+						<div className={style.btnWrapper}>
+							<Button onClick={handleSave} className={style.btn}>
+								<ProvideText en={'Save menu'} es={'Guardar menú'} />
+							</Button>
+						</div>
 					</div>
 				) : (
 					''
