@@ -1,6 +1,5 @@
 // eslint-disable-next-line react/prop-types
 const ExerciseMedia = ({ url }) => {
-	console.log(url);
 	return (
 		<video
 			src={url}

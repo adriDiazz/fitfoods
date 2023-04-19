@@ -2,7 +2,7 @@ export const fetchMuscles = async setTopMuscles => {
 	try {
 		const response = await fetch('http://127.0.0.1:8000/api/muscles');
 		const data = await response.json();
-		console.log(data);
+
 		setTopMuscles({ loading: false, data });
 	} catch (err) {
 		console.log(err);
@@ -38,7 +38,7 @@ export const fetchFood = async setFood => {
 	try {
 		const response = await fetch('http://127.0.0.1:8000/api/food');
 		const data = await response.json();
-		console.log(data);
+
 		setFood({ loading: false, data });
 	} catch (err) {
 		console.log(err);
@@ -57,7 +57,6 @@ export const addMenu = async data => {
 		});
 
 		const result = await response.json();
-		console.log('Success:', result);
 	} catch (error) {
 		console.error('Error:', error);
 	}
@@ -74,7 +73,7 @@ export const classifyRecipe = async (data, setRecipeCategory, setIsLoading) => {
 		});
 
 		const result = await response.json();
-		console.log(result);
+
 		if (
 			result.pred !== 'Carnes, pescados y verduras' &&
 			result.pred !== 'Cereales y derivados' &&
@@ -85,7 +84,6 @@ export const classifyRecipe = async (data, setRecipeCategory, setIsLoading) => {
 		}
 		setIsLoading(false);
 		setRecipeCategory(result.pred);
-		console.log('Success:', result);
 	} catch (error) {
 		console.error('Error:', error);
 	}

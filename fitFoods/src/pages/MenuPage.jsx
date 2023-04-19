@@ -77,7 +77,7 @@ const MenuPage = () => {
 			fArray.snack.forEach(element => {
 				sortedArr.push(element);
 			});
-			console.log(sortedArr);
+
 			sortedArr.map(e => {
 				let percentage = 0;
 				if (e.type === 'breakfast') {

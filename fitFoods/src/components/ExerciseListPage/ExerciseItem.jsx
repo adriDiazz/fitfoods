@@ -2,7 +2,6 @@ import Button from '../UI/Button';
 import style from './ExerciseItem.module.css';
 // eslint-disable-next-line react/prop-types
 const ExerciseItem = ({ exercise, onClick }) => {
-	console.log(exercise);
 	return (
 		<li className={style.card}>
 			<div className={style.container}>
