@@ -81,13 +81,13 @@ const MenuPage = () => {
 			sortedArr.map(e => {
 				let percentage = 0;
 				if (e.type === 'breakfast') {
-					percentage = 0.2;
+					percentage = 0.1;
 				}
 				if (e.type === 'lunch') {
-					percentage = 0.4;
+					percentage = 0.2;
 				}
 				if (e.type === 'dinner') {
-					percentage = 0.3;
+					percentage = 0.15;
 				}
 				if (e.type === 'snack') {
 					percentage = 0.1;
