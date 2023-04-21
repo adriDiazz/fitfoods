@@ -5,7 +5,7 @@ import Card from '../components/MenuPage/Card';
 import { addMenu, fetchFood } from '../utils/services';
 import { ProvideText } from '../context/Languaje';
 
-const MenuPage = () => {
+const MenuPage = ({ setMobile }) => {
 	const [food, setFood] = useState({
 		loading: true,
 		data: [],
@@ -28,6 +28,7 @@ const MenuPage = () => {
 	};
 
 	useEffect(() => {
+		setMobile(false);
 		setMenu([]);
 		if (food.data.length > 0) {
 			function shuffleArray(array) {

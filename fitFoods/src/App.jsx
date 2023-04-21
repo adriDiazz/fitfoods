@@ -9,6 +9,7 @@ import { LanguageProvider } from './context/Languaje';
 import MobileNavbar from './components/UI/MobileNavbar';
 import { useState } from 'react';
 import ExercisesListPage from './pages/ExercisesListPage';
+import TetasCulos from './pages/TetasCulos';
 
 function App() {
 	const [mobile, setMobile] = useState(false);
@@ -18,12 +19,16 @@ function App() {
 				<NavBar mobile={mobile} setMobile={setMobile} />
 				{mobile && <MobileNavbar />}
 				<Routes>
-					<Route path='/' element={<HomePage />} />
-					<Route path='menus' element={<MenuPage />} />
+					<Route path='/' element={<HomePage setMobile={setMobile} />} />
+					<Route path='menus' element={<MenuPage setMobile={setMobile} />} />
 					<Route path='exercises'>
-						<Route path='' element={<ExercisesPage />} />
-						<Route path=':muscle' element={<ExercisesListPage />} />
+						<Route path='' element={<ExercisesPage setMobile={setMobile} />} />
+						<Route
+							path=':muscle'
+							element={<ExercisesListPage setMobile={setMobile} />}
+						/>
 					</Route>
+
 					<Route path='*' element={<h1>404</h1>} />
 				</Routes>
 				<Footer />
