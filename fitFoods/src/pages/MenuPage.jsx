@@ -82,13 +82,13 @@ const MenuPage = ({ setMobile }) => {
 			sortedArr.map(e => {
 				let percentage = 0;
 				if (e.type === 'breakfast') {
-					percentage = 0.2;
+					percentage = 0.2 / 2;
 				}
 				if (e.type === 'lunch') {
-					percentage = 0.4;
+					percentage = 0.4 / 2;
 				}
 				if (e.type === 'dinner') {
-					percentage = 0.3;
+					percentage = 0.3 / 2;
 				}
 				if (e.type === 'snack') {
 					percentage = 0.1;

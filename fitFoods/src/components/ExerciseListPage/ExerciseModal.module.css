@@ -4,9 +4,12 @@
 	padding-top: 0px; /* Location of the box */
 	left: 0;
 	top: 0;
-	width: 100%; /* Full width */
-	height: 100%; /* Full height */
+	width: 50vw; /* Full width */
+	height: fit-content; /* Full height */
 	overflow: auto; /* Enable scroll if needed */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .wrapper h1 {

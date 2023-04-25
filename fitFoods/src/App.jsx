@@ -9,7 +9,6 @@ import { LanguageProvider } from './context/Languaje';
 import MobileNavbar from './components/UI/MobileNavbar';
 import { useState } from 'react';
 import ExercisesListPage from './pages/ExercisesListPage';
-import TetasCulos from './pages/TetasCulos';
 
 function App() {
 	const [mobile, setMobile] = useState(false);

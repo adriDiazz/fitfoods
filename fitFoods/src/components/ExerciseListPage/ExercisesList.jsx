@@ -23,6 +23,8 @@ function ExercisesList({ muscleId }) {
 		error: null
 	});
 
+	console.log(muscleId);
+
 	useEffect(() => {
 		fetchExercises(muscleId, setExercises);
 	}, [muscleId]);
