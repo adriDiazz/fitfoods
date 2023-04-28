@@ -1,5 +1,5 @@
-import { useContext, useState } from 'react';
-import { LanguageContext } from '../../context/Languaje';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './LanguageSelector.module.css';
 
 const GlobeIcon = () => (
@@ -16,10 +16,9 @@ const GlobeIcon = () => (
 );
 
 export default function LanguageSelector() {
-	const { userLanguageChange } = useContext(LanguageContext);
-	// set selected language by calling context method
-	const handleLanguageChange = lang => {
-		userLanguageChange(lang);
+	const { t, i18n } = useTranslation();
+	const changeLanguage = lng => {
+		i18n.changeLanguage(lng);
 		setDropdown(!dropdown);
 	};
 	const [dropdown, setDropdown] = useState(false);
@@ -41,23 +40,23 @@ export default function LanguageSelector() {
 						<ul className={styles.dropdownList}>
 							<li
 								className={styles.dropdownItem}
-								onClick={() => handleLanguageChange('es')}
+								onClick={() => changeLanguage('es')}
 							>
 								<img
 									src='http://purecatamphetamine.github.io/country-flag-icons/3x2/ES.svg'
 									style={{ width: 20 }}
 								/>{' '}
-								Español
+								{t('language.es')}
 							</li>
 							<li
 								className={styles.dropdownItem}
-								onClick={() => handleLanguageChange('en')}
+								onClick={() => changeLanguage('en')}
 							>
 								<img
 									src='http://purecatamphetamine.github.io/country-flag-icons/3x2/GB.svg'
 									style={{ width: 20 }}
 								/>{' '}
-								English
+								{t('language.en')}
 							</li>
 						</ul>
 					</div>

@@ -1,19 +1,19 @@
-import { useContext, useState } from 'react';
-import { LanguageContext } from '../../context/Languaje';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import style from './Body.module.css';
 
 const FrontBody = () => {
 	const [overName, setOverName] = useState('');
 	const [tooltipStyles, setTooltipStyles] = useState({});
-	const languageContext = useContext(LanguageContext);
+	const { i18n } = useTranslation();
 	const navigate = useNavigate();
 	const routeChange = route => {
 		navigate(route);
 	};
 
 	const handleOver = (es, en) => {
-		languageContext.userLanguage === 'es' ? setOverName(es) : setOverName(en);
+		i18n.language === 'es' ? setOverName(es) : setOverName(en);
 	};
 
 	const handleLeave = () => {

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { ProvideText } from '../../context/Languaje';
 import Button from './Button';
 import FormProvider from './FormProvider';
 import LanguageSelector from './LanguageSelector';
@@ -9,10 +8,11 @@ import ModalComponent from './ModalComponent';
 import styles from './NavBar.module.css';
 import LogoIcon from './Icons/LogoIcon';
 import BurguerIcon from './Icons/BurguerIcon';
+import { useTranslation } from 'react-i18next';
 
 const NavBar = ({ mobile, setMobile }) => {
 	const [opened, setOpened] = useState(false);
-
+	const { t } = useTranslation();
 	return (
 		<>
 			<nav className={styles.wrapper}>
@@ -31,7 +31,7 @@ const NavBar = ({ mobile, setMobile }) => {
 							isActive ? styles.selected : styles.navLink
 						}
 					>
-						<ProvideText es='Inicio' en='Home' />
+						{t('components.ui.navbar.home')}
 					</NavLink>
 					<NavLink
 						to='exercises'
@@ -39,7 +39,7 @@ const NavBar = ({ mobile, setMobile }) => {
 							isActive ? styles.selected : styles.navLink
 						}
 					>
-						<ProvideText es='Ejercicios' en='Exercises' />
+						{t('components.ui.navbar.exercises')}
 					</NavLink>
 					<NavLink
 						to='menus'
@@ -47,12 +47,12 @@ const NavBar = ({ mobile, setMobile }) => {
 							isActive ? styles.selected : styles.navLink
 						}
 					>
-						<ProvideText es='Menús' en='Menus' />
+						{t('components.ui.navbar.menus')}
 					</NavLink>
 				</ul>
 
 				<Button onClick={() => setOpened(true)}>
-					<ProvideText es='Inciar Sesion' en='Log In' />
+					{t('components.ui.navbar.login')}
 				</Button>
 				<LanguageSelector />
 			</nav>

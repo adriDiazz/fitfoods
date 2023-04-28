@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import style from './Card.module.css';
 import { classifyRecipe } from '../../utils/services';
-import { ProvideText } from '../../context/Languaje';
+import { useTranslation } from 'react-i18next';
 
 // eslint-disable-next-line react/prop-types
 const Card = ({ name, type, calories, url, grams }) => {
+	const { t } = useTranslation();
 	const [recipeClass, setRecipeClass] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
 	const handleClassify = () => {
@@ -27,7 +28,7 @@ const Card = ({ name, type, calories, url, grams }) => {
 					<p className={style.nombrereceta}> {name}</p>
 					<p className={style.cantidad}>{grams} Grams</p>
 					<button className={style.button} onClick={handleClassify}>
-						<ProvideText en={'Classify'} es={'Clasificar'} />
+						{t('components.menupage.card.classify')}
 					</button>
 				</div>
 

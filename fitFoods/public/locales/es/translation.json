@@ -1,0 +1,40 @@
+{
+  "language": {
+      "es": "Español",
+      "en": "Inglés"
+  },
+  "components": {
+      "exerciselistpage": {
+          "exerciseitem": {
+              "showmore": "Show more"
+          }
+      },
+      "homepage": {
+          "header": {
+              "train": "Entrena",
+              "and": "y",
+              "eat": "Come",
+              "athlete": "Como tu atleta favorito",
+              "query": "¿Alguna pregunta? Visítanos en:"
+          },
+          "iconsrow": {
+              "gain": "Gana",
+              "eat": "Come",
+              "plan": "Planea"
+          }
+      },
+      "menupage": {
+          "card": {
+              "classify": "Clasificar"
+          }
+      },
+      "ui": {
+          "navbar": {
+              "home": "Inicio",
+              "exercises": "Ejercicios",
+              "menus": "Menús",
+              "login": "Iniciar Sesión"
+          }
+      }
+  }
+}

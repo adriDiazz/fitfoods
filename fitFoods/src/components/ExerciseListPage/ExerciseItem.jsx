@@ -1,7 +1,10 @@
 import Button from '../UI/Button';
 import style from './ExerciseItem.module.css';
+import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line react/prop-types
 const ExerciseItem = ({ exercise, onClick }) => {
+	const { t } = useTranslation();
+
 	return (
 		<li className={style.card}>
 			<div className={style.container}>
@@ -19,7 +22,7 @@ const ExerciseItem = ({ exercise, onClick }) => {
 
 			<div className={style.btnWrapper}>
 				<Button onClick={onClick} className={style.btn}>
-					Show more
+					{t('exerciselistpage.exerciseitem.showmore')}
 				</Button>
 			</div>
 		</li>

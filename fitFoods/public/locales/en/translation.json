@@ -1,0 +1,40 @@
+{
+    "language": {
+        "es": "Spanish",
+        "en": "English"
+    },
+    "components": {
+        "exerciselistpage": {
+            "exerciseitem": {
+                "showmore": "Show more"
+            }
+        },
+        "homepage": {
+            "header": {
+                "train": "Train",
+                "and": "and",
+                "eat": "Eat",
+                "athlete": "Like your favourite athlete",
+                "query": "Any Queries? Visit us on"
+            },
+            "iconsrow": {
+                "gain": "Gain",
+                "eat": "Eat",
+                "plan": "Plan"
+            }
+        },
+        "menupage": {
+            "card": {
+                "classify": "Classify"
+            }
+        },
+        "ui": {
+            "navbar": {
+                "home": "Home",
+                "exercises": "Exercises",
+                "menus": "Menus",
+                "login": "Log In"
+            }
+        }
+    }
+  }

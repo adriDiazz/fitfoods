@@ -1,32 +1,26 @@
 import style from './Header.module.css';
-import { ProvideText } from '../../context/Languaje';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
+	const { t } = useTranslation();
 	return (
 		<header>
 			<div className={style.header}>
 				<div className={style.colIzq}>
 					<h1>
 						<span className={style.green}>
-							<ProvideText es='Entrena' en='Train' />
+							{t('components.homepage.header.train')}
 						</span>{' '}
-						<ProvideText es='y' en='and' />{' '}
+						{t('components.homepage.header.and')}
 						<span className={style.green}>
-							<ProvideText es='Come' en='Eat' />
+							{' '}
+							{t('components.homepage.header.eat')}
 						</span>{' '}
-						<ProvideText
-							es='Como tu atleta favorito'
-							en='Like your favourite athlete'
-						/>
+						{t('components.homepage.header.athlete')}
 					</h1>
 					<div className={style.social}>
 						<div className={style.info}>
-							<h2>
-								<ProvideText
-									es='¿Alguna pregunta? Visítanos en:'
-									en='Any Queries? Visit us on'
-								/>
-							</h2>
+							<h2>{t('components.homepage.header.query')}</h2>
 
 							<p>www.fitfoods.com</p>
 							<div className={style.logos}>
