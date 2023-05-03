@@ -2,7 +2,6 @@ import { useState } from 'react';
 import style from './Card.module.css';
 import { classifyRecipe } from '../../utils/services';
 import { useTranslation } from 'react-i18next';
-
 // eslint-disable-next-line react/prop-types
 const Card = ({ name, type, calories, url, grams }) => {
 	const { t } = useTranslation();
@@ -21,12 +20,15 @@ const Card = ({ name, type, calories, url, grams }) => {
 			<div className={style.rectanguloreceta}>
 				<h2 className={style.typemeal}>{type}</h2>
 				<span className={style.caloriesmeal}>
-					{Math.round((calories * grams) / 100)} Calorías
+					{Math.round((calories * grams) / 100)}{' '}
+					{t('components.menupage.card.calories')}
 				</span>
 				<div className={style.informacion}>
 					<img className={style.imagen} src={url}></img>
 					<p className={style.nombrereceta}> {name}</p>
-					<p className={style.cantidad}>{grams} Grams</p>
+					<p className={style.cantidad}>
+						{grams} {t('components.menupage.card.grams')}
+					</p>
 					<button className={style.button} onClick={handleClassify}>
 						{t('components.menupage.card.classify')}
 					</button>

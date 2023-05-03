@@ -1,18 +1,13 @@
-import { useState } from 'react';
-import { ProvideText } from '../../context/Languaje';
 import Button from './Button';
 import style from './RegisterModal.module.css';
+import { useTranslation } from 'react-i18next';
 
 function RegisterModal({ setFormState }) {
+	const { t } = useTranslation();
 	return (
 		<div className={style.wrapper}>
 			<div className={style.left}>
-				<h2>
-					<ProvideText
-						es='Inicia tu entrenamiento con nosotros'
-						en='Start Training with us'
-					/>
-				</h2>
+				<h2>{t('components.ui.login.start')}</h2>
 				<div className={style.social}>
 					<img src='instagram.svg' alt='' />
 					<img src='twitter.svg' alt='' />
@@ -26,14 +21,12 @@ function RegisterModal({ setFormState }) {
 					<input type='password' placeholder='Password' />
 					<input type='password' placeholder='Confirm Password' />
 					<p>
-						<ProvideText es='¿Ya tienes cuenta?' en='Have an account?' />
+						{t('components.ui.login.already')}
 						<span onClick={() => setFormState('login')}>
-							<ProvideText es='  Inicia sesion aqui' en='  Log In here' />
+							{t('components.ui.login.login')}
 						</span>
 					</p>
-					<Button>
-						<ProvideText es='Registrarse' en='Register' />
-					</Button>
+					<Button>{t('components.ui.login.here')}</Button>
 				</form>
 			</div>
 		</div>

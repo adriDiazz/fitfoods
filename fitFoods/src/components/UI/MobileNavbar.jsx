@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { ProvideText } from '../../context/Languaje';
 import style from './MobileNavbar.module.css';
+import { useTranslation } from 'react-i18next';
 
 function MobileNavbar() {
+	const { t } = useTranslation();
 	return (
 		<div className={style.wrapper}>
 			<ul className={style.ul}>
@@ -13,7 +13,7 @@ function MobileNavbar() {
 						isActive ? style.selected : style.navLink
 					}
 				>
-					<ProvideText es='Inicio' en='Home' />
+					{t('components.ui.navbar.home')}
 				</NavLink>
 				<NavLink
 					to='exercises'
@@ -21,7 +21,7 @@ function MobileNavbar() {
 						isActive ? style.selected : style.navLink
 					}
 				>
-					<ProvideText es='Ejercicios' en='Exercises' />
+					{t('components.ui.navbar.exercises')}
 				</NavLink>
 				<NavLink
 					to='menus'
@@ -29,7 +29,7 @@ function MobileNavbar() {
 						isActive ? style.selected : style.navLink
 					}
 				>
-					<ProvideText es='Menús' en='Menus' />
+					{t('components.ui.navbar.menus')}
 				</NavLink>
 			</ul>
 		</div>

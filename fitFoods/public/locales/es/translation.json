@@ -6,7 +6,7 @@
   "components": {
       "exerciselistpage": {
           "exerciseitem": {
-              "showmore": "Show more"
+              "showmore": "Ver más"
           }
       },
       "homepage": {
@@ -21,11 +21,24 @@
               "gain": "Gana",
               "eat": "Come",
               "plan": "Planea"
+          },
+          "page": {
+              "bymuscle": "Obtén ejercicios por músculo",
+              "menu": "Obtén recomendaciones de menús"
           }
       },
       "menupage": {
           "card": {
-              "classify": "Clasificar"
+            "classify": "Clasificar",
+            "calories": "Calorías",
+            "grams": "Gramos"
+          },
+          "page": {
+            "autopilot": "Pon tu dieta en automatico",
+            "calories": "Calorias que quieres comer",
+            "generate": "Generar menú",
+            "save": "Guardar menú",
+            "plan": "Menú de hoy: "
           }
       },
       "ui": {
@@ -34,7 +47,15 @@
               "exercises": "Ejercicios",
               "menus": "Menús",
               "login": "Iniciar Sesión"
-          }
+          },
+          "login": {
+            "start": "EMPIEZA A ENTRENAR CON NOSOTROS",
+            "login": "Acceder",
+            "register": "¿No tienes una cuenta?",
+            "back": "Volver",
+            "here": "Regístrate aquí",
+            "already": "¿Ya tienes cuenta?"
+        }
       }
   }
 }

@@ -1,17 +1,13 @@
 import { NavLink } from 'react-router-dom';
-import { ProvideText } from '../../context/Languaje';
 import styles from './Login.module.css';
+import { useTranslation } from 'react-i18next';
 
 const Register = () => {
+	const { t } = useTranslation();
 	return (
 		<section>
 			<div id={styles.contenedor}>
-				<div className={styles.titulo}>
-					<ProvideText
-						es='EMPIEZA A ENTRENAR CON NOSOTROS'
-						en='START TRAINING WITH US'
-					/>
-				</div>
+				<div className={styles.titulo}>{t('components.ui.login.start')}</div>
 				<div id={styles.central}>
 					<img src='logo.svg' alt='fitfoods' />
 					<div id={styles.login}>
@@ -35,14 +31,12 @@ const Register = () => {
 								required
 							></input>
 							<button type='submit' title='Ingresar' name='Ingresar'>
-								<ProvideText es='Registrar' en='Register' />
+								{t('components.ui.login.here')}
 							</button>
 						</form>
 					</div>
 					<div className={styles.inferior}>
-						<NavLink to='/'>
-							<ProvideText es='Volver' en='Back' />
-						</NavLink>
+						<NavLink to='/'>{t('components.ui.login.back')}</NavLink>
 					</div>
 				</div>
 			</div>

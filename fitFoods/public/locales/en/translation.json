@@ -21,11 +21,24 @@
                 "gain": "Gain",
                 "eat": "Eat",
                 "plan": "Plan"
+            },
+            "page": {
+                "bymuscle": "Get exercises by Muscle",
+                "menu": "Get food recommendations"
             }
         },
         "menupage": {
             "card": {
-                "classify": "Classify"
+                "classify": "Classify",
+                "calories": "Calories",
+                "grams": "Grams"
+            },
+            "page": {
+                "autopilot": "Put your diet on autopilot",
+                "calories": "Calories you want to eat",
+                "generate": "Generate menu",
+                "save": "Save menu",
+                "plan": "Menu plan for today: "
             }
         },
         "ui": {
@@ -34,6 +47,14 @@
                 "exercises": "Exercises",
                 "menus": "Menus",
                 "login": "Log In"
+            },
+            "login": {
+                "start": "START TRAINING WITH US",
+                "login": "Log In",
+                "register": "Don't have an account?",
+                "back": "Back",
+                "here": "Sign up here",
+                "already": "Have an account?"
             }
         }
     }

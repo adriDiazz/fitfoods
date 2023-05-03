@@ -22,7 +22,7 @@ const ExerciseItem = ({ exercise, onClick }) => {
 
 			<div className={style.btnWrapper}>
 				<Button onClick={onClick} className={style.btn}>
-					{t('exerciselistpage.exerciseitem.showmore')}
+					{t('components.exerciselistpage.exerciseitem.showmore')}
 				</Button>
 			</div>
 		</li>

@@ -4,8 +4,10 @@ import Button from '../components/UI/Button';
 import Card from '../components/MenuPage/Card';
 import { addMenu, fetchFood } from '../utils/services';
 import { ProvideText } from '../context/Languaje';
+import { useTranslation } from 'react-i18next';
 
 const MenuPage = ({ setMobile }) => {
+	const { t } = useTranslation();
 	const [food, setFood] = useState({
 		loading: true,
 		data: [],
@@ -106,17 +108,11 @@ const MenuPage = ({ setMobile }) => {
 	return (
 		<div>
 			<h2 className={style.titulo}>
-				<ProvideText
-					en={'Put your diet on autopilot'}
-					es={'Pon tu dieta en automatico'}
-				/>
+				{t('components.menupage.page.autopilot')}
 			</h2>
 			<div className={style.rectangulo}>
 				<h3 className={style.titulocalorias}>
-					<ProvideText
-						en={'Calories you want to eat'}
-						es={'Calorias que quieres comer'}
-					/>
+					{t('components.menupage.page.calories')}
 				</h3>
 				<div className={style.input}>
 					{' '}
@@ -131,11 +127,12 @@ const MenuPage = ({ setMobile }) => {
 				<div className={style.buttondiv}>
 					{' '}
 					<Button onClick={handleMenu}>
-						<ProvideText en={'Generate menu'} es={'Generar menú'} />
+						{t('components.menupage.page.generate')}
 					</Button>
 				</div>
 				<p className={style.titulomenu}>
-					Menú plan for today: {calories} calories
+					{t('components.menupage.page.plan')} {calories}{' '}
+					{t('components.menupage.card.calories')}
 				</p>
 				{isClicked && food.loading ? (
 					<div
@@ -170,7 +167,7 @@ const MenuPage = ({ setMobile }) => {
 						})}
 						<div className={style.btnWrapper}>
 							<Button onClick={handleSave} className={style.btn}>
-								<ProvideText en={'Save menu'} es={'Guardar menú'} />
+								{t('components.menupage.page.save')}
 							</Button>
 						</div>
 					</div>
