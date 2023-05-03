@@ -3,7 +3,6 @@ import style from './MenuPage.module.css';
 import Button from '../components/UI/Button';
 import Card from '../components/MenuPage/Card';
 import { addMenu, fetchFood } from '../utils/services';
-import { ProvideText } from '../context/Languaje';
 import { useTranslation } from 'react-i18next';
 
 const MenuPage = ({ setMobile }) => {
