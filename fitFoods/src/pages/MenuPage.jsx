@@ -3,11 +3,13 @@ import style from './MenuPage.module.css';
 import Button from '../components/UI/Button';
 import Card from '../components/MenuPage/Card';
 import { addMenu, fetchFood } from '../utils/services';
-import { ProvideText } from '../context/Languaje';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import { useUser } from '../context/UserContext';
 
 const MenuPage = ({ setMobile }) => {
 	const { t } = useTranslation();
+	const navigate = useNavigate();
 	const [food, setFood] = useState({
 		loading: true,
 		data: [],
@@ -20,6 +22,12 @@ const MenuPage = ({ setMobile }) => {
 		fetchFood(setFood);
 		setIsClicked(true);
 	};
+	const user = useUser();
+
+	console.log(user);
+	const { userToken } = useUser();
+
+	console.log(userToken);
 
 	const handleInput = e => {
 		setCalories(e.target.value);
@@ -28,6 +36,12 @@ const MenuPage = ({ setMobile }) => {
 	const handleSave = () => {
 		addMenu({ name: 'Prueba', user_id: 1, food: menu });
 	};
+
+	useEffect(() => {
+		if (!userToken) {
+			navigate('/');
+		}
+	}, [userToken]);
 
 	useEffect(() => {
 		setMobile(false);

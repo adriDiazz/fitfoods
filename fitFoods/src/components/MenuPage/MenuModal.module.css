@@ -1,0 +1,22 @@
+.wrapper {
+    width: 45vw;
+    min-height: 50vh;
+    background-color: var(--dark-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper h1 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        width: 80vw;
+        min-height: 80vh;
+        flex-wrap: wrap;
+    }
+}

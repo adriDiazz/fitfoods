@@ -8,10 +8,19 @@ import styles from './NavBar.module.css';
 import LogoIcon from './Icons/LogoIcon';
 import BurguerIcon from './Icons/BurguerIcon';
 import { useTranslation } from 'react-i18next';
+import { useUser } from '../../context/UserContext';
+import MenuModal from '../MenuPage/MenuModal';
 
 const NavBar = ({ mobile, setMobile }) => {
 	const [opened, setOpened] = useState(false);
+	const [menuModal, setMenuModal] = useState(false);
+	const { userToken, getUserDataByJwt } = useUser();
 	const { t } = useTranslation();
+
+	const userData = getUserDataByJwt();
+
+	console.log(userData);
+
 	return (
 		<>
 			<nav className={styles.wrapper}>
@@ -22,7 +31,7 @@ const NavBar = ({ mobile, setMobile }) => {
 					onClick={() => setMobile(!mobile)}
 				/>
 				{/* <img src='logo.svg' alt='fitfoods' className={styles.logo} /> */}
-				<LogoIcon />
+				<LogoIcon className={styles.fitlogo} />
 				<ul className={styles.ul}>
 					<NavLink
 						to='/'
@@ -40,24 +49,59 @@ const NavBar = ({ mobile, setMobile }) => {
 					>
 						{t('components.ui.navbar.exercises')}
 					</NavLink>
-					<NavLink
-						to='menus'
-						className={({ isActive }) =>
-							isActive ? styles.selected : styles.navLink
-						}
-					>
-						{t('components.ui.navbar.menus')}
-					</NavLink>
+
+					{userToken ? (
+						<NavLink
+							to='menus'
+							className={({ isActive }) =>
+								isActive ? styles.selected : styles.navLink
+							}
+						>
+							{t('components.ui.navbar.menus')}
+						</NavLink>
+					) : (
+						<a
+							href=''
+							className={styles.navLink}
+							onClick={e => {
+								e.preventDefault();
+								setMenuModal(true);
+							}}
+						>
+							{t('components.ui.navbar.menus')}
+						</a>
+					)}
 				</ul>
 
-				<Button onClick={() => setOpened(true)}>
-					{t('components.ui.navbar.login')}
-				</Button>
+				{userToken ? (
+					<>
+						<div className={styles.user}>
+							<p>{userData.name}</p>
+						</div>
+
+						<Button
+							onClick={() => {
+								window.localStorage.removeItem('token');
+								window.location.reload();
+							}}
+						>
+							LogOut
+						</Button>
+					</>
+				) : (
+					<Button onClick={() => setOpened(true)}>
+						{t('components.ui.navbar.login')}
+					</Button>
+				)}
+
 				<LanguageSelector />
 			</nav>
 			<div className={styles.greenLine}></div>
 			<ModalComponent opened={opened} setOpened={setOpened}>
 				<FormProvider />
+			</ModalComponent>
+			<ModalComponent opened={menuModal} setOpened={setMenuModal}>
+				<MenuModal />
 			</ModalComponent>
 		</>
 	);
