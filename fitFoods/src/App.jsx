@@ -10,7 +10,7 @@ import MobileNavbar from './components/UI/MobileNavbar';
 import { useState } from 'react';
 import ExercisesListPage from './pages/ExercisesListPage';
 import './i18n/i18n';
-import { UserContext, UserProvider } from './context/UserContext';
+import { UserProvider } from './context/UserContext';
 
 function App() {
 	const [mobile, setMobile] = useState(false);

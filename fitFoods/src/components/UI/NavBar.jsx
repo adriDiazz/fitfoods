@@ -18,9 +18,6 @@ const NavBar = ({ mobile, setMobile }) => {
 	const { t } = useTranslation();
 
 	const userData = getUserDataByJwt();
-
-	console.log(userData);
-
 	return (
 		<>
 			<nav className={styles.wrapper}>
@@ -73,7 +70,7 @@ const NavBar = ({ mobile, setMobile }) => {
 					)}
 				</ul>
 
-				{userToken ? (
+				{userData ? (
 					<>
 						<div className={styles.user}>
 							<p>{userData.name}</p>

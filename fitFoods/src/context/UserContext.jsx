@@ -17,7 +17,7 @@ export function UserProvider({ children }) {
 			window.localStorage.setItem('token', newToken);
 		},
 		getUserDataByJwt: () => {
-			if (userToken) {
+			if (userToken && userToken !== 'null') {
 				const decoded = jwtDecode(userToken);
 				return decoded.user;
 			}
