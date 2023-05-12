@@ -1,6 +1,5 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 
 function ExercisesDetailsPage({ setMobile }) {
 	const { muscle, exercise } = useParams();
