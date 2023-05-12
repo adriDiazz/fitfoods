@@ -10,7 +10,8 @@ import MobileNavbar from './components/UI/MobileNavbar';
 import { useState } from 'react';
 import ExercisesListPage from './pages/ExercisesListPage';
 import './i18n/i18n';
-import { UserContext, UserProvider } from './context/UserContext';
+import { UserProvider } from './context/UserContext';
+import ExercisesDetailsPage from './pages/ExercisesDetailsPage';
 
 function App() {
 	const [mobile, setMobile] = useState(false);
@@ -28,10 +29,17 @@ function App() {
 								path=''
 								element={<ExercisesPage setMobile={setMobile} />}
 							/>
-							<Route
-								path=':muscle'
-								element={<ExercisesListPage setMobile={setMobile} />}
-							/>
+							<Route path=':muscle'>
+								<Route
+									path=''
+									element={<ExercisesListPage setMobile={setMobile} />}
+								/>
+
+								<Route
+									path=':exercise'
+									element={<ExercisesDetailsPage setMobile={setMobile} />}
+								/>
+							</Route>
 						</Route>
 
 						<Route path='*' element={<h1>404</h1>} />
