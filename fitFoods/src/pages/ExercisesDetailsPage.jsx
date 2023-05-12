@@ -5,6 +5,7 @@ function ExercisesDetailsPage({ setMobile }) {
 	const { muscle, exercise } = useParams();
 	const [exerciseId, setExerciseId] = useState(null);
 	const [muscleName, setMuscleName] = useState(null);
+
 	const location = useLocation();
 	console.log(location.state.exercise);
 
@@ -21,6 +22,15 @@ function ExercisesDetailsPage({ setMobile }) {
 		<div>
 			<h1>{exerciseId}</h1>
 			<h2>{muscleName}</h2>
+			<video
+				preload='metadata'
+				muted
+				autoPlay
+				loop
+				src={location.state.exercise.url}
+			>
+				a
+			</video>
 		</div>
 	);
 }
