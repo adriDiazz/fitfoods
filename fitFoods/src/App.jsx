@@ -10,11 +10,13 @@ import MobileNavbar from './components/UI/MobileNavbar';
 import { useState } from 'react';
 import ExercisesListPage from './pages/ExercisesListPage';
 import './i18n/i18n';
-import { UserProvider } from './context/UserContext';
+import { UserProvider, useUser } from './context/UserContext';
 import ExercisesDetailsPage from './pages/ExercisesDetailsPage';
+import GuardedRoute from './components/Routes/GuardedRoute';
 
 function App() {
 	const [mobile, setMobile] = useState(false);
+	const { userToken } = useUser();
 	return (
 		<>
 			<UserProvider>
@@ -23,7 +25,20 @@ function App() {
 					{mobile && <MobileNavbar />}
 					<Routes>
 						<Route path='/' element={<HomePage setMobile={setMobile} />} />
-						<Route path='menus' element={<MenuPage setMobile={setMobile} />} />
+						<Route
+							element={
+								<GuardedRoute
+									isRouteAccessible={userToken}
+									redirectRoute='/'
+								></GuardedRoute>
+							}
+						>
+							<Route
+								path='menus'
+								element={<MenuPage setMobile={setMobile} />}
+							></Route>
+						</Route>
+
 						<Route path='exercises'>
 							<Route
 								path=''
