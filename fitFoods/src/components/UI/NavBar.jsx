@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Button from './Button';
-import FormProvider from './FormProvider';
+import FormProvider from '../HomePage/FormProvider';
 import LanguageSelector from './LanguageSelector';
 import ModalComponent from './ModalComponent';
 import styles from './NavBar.module.css';

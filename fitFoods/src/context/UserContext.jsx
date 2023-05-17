@@ -11,7 +11,17 @@ export function UserProvider({ children }) {
 	const provider = {
 		userToken,
 		userTokenChange: selected => {
-			const newToken = selected || null;
+			let newToken = selected || null;
+
+			// check if expired
+			if (newToken) {
+				const decoded = jwtDecode(userToken);
+				const currentDate = new Date();
+				if (decoded.exp * 1000 < currentDate.getTime()) {
+					newToken = null;
+				}
+			}
+
 			setUserToken(newToken);
 			window.localStorage.setItem('token', newToken);
 		},

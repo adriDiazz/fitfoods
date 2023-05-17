@@ -1,4 +1,4 @@
-import Button from './Button';
+import Button from '../UI/Button';
 import style from './RegisterModal.module.css';
 import { useTranslation } from 'react-i18next';
 
