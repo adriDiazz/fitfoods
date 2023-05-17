@@ -6,6 +6,7 @@ import { addMenu, fetchFood } from '../utils/services';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
+import Loader from '../components/UI/Loader';
 
 const MenuPage = ({ setMobile }) => {
 	const { t } = useTranslation();
@@ -22,12 +23,8 @@ const MenuPage = ({ setMobile }) => {
 		fetchFood(setFood);
 		setIsClicked(true);
 	};
-	const user = useUser();
 
-	console.log(user);
 	const { userToken } = useUser();
-
-	console.log(userToken);
 
 	const handleInput = e => {
 		setCalories(e.target.value);
@@ -116,9 +113,11 @@ const MenuPage = ({ setMobile }) => {
 			setMenu(menu => [...menu, ...sortedArr]);
 		}
 	}, [food]);
+
 	if (isClicked && food.error) {
 		return <div>Error: {food.error.message}</div>;
 	}
+
 	return (
 		<div>
 			<h2 className={style.titulo}>
@@ -149,22 +148,7 @@ const MenuPage = ({ setMobile }) => {
 					{t('components.menupage.card.calories')}
 				</p>
 				{isClicked && food.loading ? (
-					<div
-						style={{
-							display: 'flex',
-							justifyContent: 'center',
-							alignItems: 'center',
-							height: '90vh',
-							width: '90vw'
-						}}
-					>
-						<div className='lds-ring'>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-					</div>
+					<Loader />
 				) : menu.length > 0 ? (
 					<div>
 						{menu.map(m => {

@@ -10,6 +10,7 @@ import BurguerIcon from './Icons/BurguerIcon';
 import { useTranslation } from 'react-i18next';
 import { useUser } from '../../context/UserContext';
 import MenuModal from '../MenuPage/MenuModal';
+import { logOut } from '../../utils/services';
 
 const NavBar = ({ mobile, setMobile }) => {
 	const [opened, setOpened] = useState(false);
@@ -78,8 +79,10 @@ const NavBar = ({ mobile, setMobile }) => {
 
 						<Button
 							onClick={() => {
-								window.localStorage.removeItem('token');
-								window.location.reload();
+								logOut().then(() => {
+									window.localStorage.removeItem('token');
+									window.location.reload();
+								});
 							}}
 						>
 							LogOut

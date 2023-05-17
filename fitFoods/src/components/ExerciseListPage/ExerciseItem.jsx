@@ -27,7 +27,7 @@ const ExerciseItem = ({ exercise, onClick }) => {
 				<Button
 					onClick={() => {
 						navigate(`${location.pathname}/${exercise.id}`, {
-							state: { exercise: exercise }
+							state: { exercise }
 						});
 					}}
 					className={style.btn}

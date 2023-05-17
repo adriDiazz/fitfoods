@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useUser } from '../context/UserContext';
 
 export function useFetch(url) {
-	const [data, setData] = useState(null);
+	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
@@ -28,7 +28,7 @@ export function useFetch(url) {
 				setError(error);
 				setLoading(false);
 			});
-	}, []);
+	}, [url, userToken]);
 
 	return { data, loading, error };
 }

@@ -12,7 +12,6 @@ export function UserProvider({ children }) {
 		userToken,
 		userTokenChange: selected => {
 			const newToken = selected || null;
-			console.log(selected);
 			setUserToken(newToken);
 			window.localStorage.setItem('token', newToken);
 		},

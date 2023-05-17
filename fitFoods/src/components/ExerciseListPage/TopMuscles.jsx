@@ -1,33 +1,23 @@
 import { useEffect, useState } from 'react';
 import style from './TopMuscles.module.css';
-import { fetchMuscles } from '../../utils/services';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
+import { useFetch } from '../../hooks/useFetch';
+import { getMuscleId } from '../../utils/utils';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-const getMuscleId = (topMuscles, currentMuscle) => {
-	const muscleId = topMuscles.find(muscle => muscle.name === currentMuscle);
-	return muscleId;
-};
-
 // eslint-disable-next-line react/prop-types
 function TopMuscles({ muscle: currentMuscle, setMuscleId }) {
-	const [topMuscles, setTopMuscles] = useState({
-		loading: true,
-		data: [],
-		error: null
-	});
 	const [windowSize, setWindowSize] = useState(window.innerWidth);
-
-	const muscleId = getMuscleId(topMuscles.data, currentMuscle);
+	const { data, loading, error } = useFetch(import.meta.env.VITE_MUSCLES_URL);
+	const muscleId = getMuscleId(data, currentMuscle);
+	const filteredMuscles = data.filter(muscle => muscle.name !== currentMuscle);
 
 	setMuscleId(muscleId?.id);
 
 	useEffect(() => {
-		fetchMuscles(setTopMuscles);
-
 		const handleResize = () => {
 			setWindowSize(window.innerWidth);
 		};
@@ -39,17 +29,13 @@ function TopMuscles({ muscle: currentMuscle, setMuscleId }) {
 		};
 	}, []);
 
-	const filteredMuscles = topMuscles.data.filter(
-		muscle => muscle.name !== currentMuscle
-	);
-
-	if (topMuscles.error) {
-		return <div>Error: {topMuscles.error.message}</div>;
+	if (error) {
+		return <div>Error: {error.message}</div>;
 	}
 
 	return (
 		<ul className={style.wrapper}>
-			{topMuscles.loading ? (
+			{loading ? (
 				'Loading...'
 			) : (
 				<Swiper

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import style from './Card.module.css';
 import { classifyRecipe } from '../../utils/services';
 import { useTranslation } from 'react-i18next';
+import Loader from '../UI/Loader';
 // eslint-disable-next-line react/prop-types
 const Card = ({ name, type, calories, url, grams }) => {
 	const { t } = useTranslation();
@@ -35,22 +36,7 @@ const Card = ({ name, type, calories, url, grams }) => {
 				</div>
 
 				{isLoading ? (
-					<div
-						style={{
-							display: 'flex',
-							justifyContent: 'center',
-							alignItems: 'center',
-							height: '0vh',
-							width: '20vh'
-						}}
-					>
-						<div className={style.classLdsRing}>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-					</div>
+					<Loader />
 				) : (
 					<span className={style.caloriesmeal}>{recipeClass}</span>
 				)}
