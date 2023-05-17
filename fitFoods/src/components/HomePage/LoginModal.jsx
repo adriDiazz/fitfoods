@@ -1,9 +1,9 @@
-import Button from './Button';
+import Button from '../UI/Button';
 import style from './LoginModal.module.css';
-import LogoIcon from './Icons/LogoIcon';
-import TwIcon from './Icons/TwIcon';
-import InstaIcon from './Icons/InstaIcon';
-import FaceBookIcon from './Icons/FaceBookIcon';
+import LogoIcon from '../UI/Icons/LogoIcon';
+import TwIcon from '../UI/Icons/TwIcon';
+import InstaIcon from '../UI/Icons/InstaIcon';
+import FaceBookIcon from '../UI/Icons/FaceBookIcon';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { login } from '../../utils/services';

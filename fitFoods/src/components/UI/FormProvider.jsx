@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import LoginModal from './LoginModal';
+import LoginModal from '../HomePage/LoginModal';
 import RegisterModal from './RegisterModal';
 
 const FormProvider = () => {
