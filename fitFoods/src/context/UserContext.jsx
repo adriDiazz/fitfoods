@@ -15,7 +15,8 @@ export function UserProvider({ children }) {
 
 			// check if expired
 			if (newToken) {
-				const decoded = jwtDecode(userToken);
+				const decoded = jwtDecode(newToken);
+
 				const currentDate = new Date();
 				if (decoded.exp * 1000 < currentDate.getTime()) {
 					newToken = null;
