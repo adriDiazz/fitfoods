@@ -1,4 +1,4 @@
-import { useState, createContext, useContext } from 'react';
+import { useState, createContext, useContext, useEffect } from 'react';
 import jwtDecode from 'jwt-decode';
 
 export const UserContext = createContext({});
@@ -7,9 +7,20 @@ export const UserContext = createContext({});
 export function UserProvider({ children }) {
 	const user = window.localStorage.getItem('token') || null;
 	const [userToken, setUserToken] = useState(user || null);
+	const [userData, setUserData] = useState(null);
+
+	useEffect(() => {
+		if (userToken && userToken !== 'null') {
+			const decoded = jwtDecode(userToken);
+			setUserData(decoded.user);
+		} else {
+			setUserData(null);
+		}
+	}, [userToken]);
 
 	const provider = {
 		userToken,
+		userData,
 		userTokenChange: selected => {
 			let newToken = selected || null;
 

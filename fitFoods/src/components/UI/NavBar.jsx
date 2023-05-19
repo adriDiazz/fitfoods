@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Button from './Button';
 import FormProvider from '../HomePage/FormProvider';
 import LanguageSelector from './LanguageSelector';
@@ -17,6 +17,7 @@ const NavBar = ({ mobile, setMobile }) => {
 	const [menuModal, setMenuModal] = useState(false);
 	const { userToken, getUserDataByJwt } = useUser();
 	const { t } = useTranslation();
+	const navigate = useNavigate();
 
 	const userData = getUserDataByJwt();
 	return (
@@ -69,6 +70,17 @@ const NavBar = ({ mobile, setMobile }) => {
 							{t('components.ui.navbar.menus')}
 						</a>
 					)}
+
+					{userData?.type === 1 && (
+						<NavLink
+							to='admin'
+							className={({ isActive }) =>
+								isActive ? styles.selected : styles.navLink
+							}
+						>
+							Dashboard
+						</NavLink>
+					)}
 				</ul>
 
 				{userData ? (
@@ -81,7 +93,7 @@ const NavBar = ({ mobile, setMobile }) => {
 							onClick={() => {
 								logOut().then(() => {
 									window.localStorage.removeItem('token');
-									window.location.reload();
+									navigate('/');
 								});
 							}}
 						>
@@ -98,7 +110,7 @@ const NavBar = ({ mobile, setMobile }) => {
 			</nav>
 			<div className={styles.greenLine}></div>
 			<ModalComponent opened={opened} setOpened={setOpened}>
-				<FormProvider />
+				<FormProvider setOpened={setOpened} />
 			</ModalComponent>
 			<ModalComponent opened={menuModal} setOpened={setMenuModal}>
 				<MenuModal />

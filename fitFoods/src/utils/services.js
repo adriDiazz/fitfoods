@@ -135,7 +135,7 @@ export const classifyRecipe = async (data, setRecipeCategory, setIsLoading) => {
 	}
 };
 
-export const login = async data => {
+export const login = async (data, setError) => {
 	try {
 		const response = await fetchWithToken('http://127.0.0.1:8000/api/login', {
 			method: 'POST',
@@ -147,9 +147,15 @@ export const login = async data => {
 
 		const result = await response.json();
 
+		if (result.error) {
+			setError(result.error);
+		} else {
+			setError('success');
+		}
+
 		return result.token;
 	} catch (error) {
-		console.error('Error:', error);
+		setError(error.message);
 	}
 };
 
