@@ -98,7 +98,7 @@ const NavBar = ({ mobile, setMobile }) => {
 			</nav>
 			<div className={styles.greenLine}></div>
 			<ModalComponent opened={opened} setOpened={setOpened}>
-				<FormProvider />
+				<FormProvider setOpened={setOpened} />
 			</ModalComponent>
 			<ModalComponent opened={menuModal} setOpened={setMenuModal}>
 				<MenuModal />

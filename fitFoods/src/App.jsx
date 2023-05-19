@@ -13,6 +13,7 @@ import './i18n/i18n';
 import { UserProvider, useUser } from './context/UserContext';
 import ExercisesDetailsPage from './pages/ExercisesDetailsPage';
 import GuardedRoute from './components/Routes/GuardedRoute';
+import AdminPage from './pages/AdminPage';
 
 function App() {
 	const [mobile, setMobile] = useState(false);
@@ -56,6 +57,8 @@ function App() {
 								/>
 							</Route>
 						</Route>
+
+						<Route path='admin' element={<AdminPage />} />
 
 						<Route path='*' element={<h1>404</h1>} />
 					</Routes>
