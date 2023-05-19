@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tremor/react": "^2.7.0",
     "eslint-config-prettier": "8.6.0",
     "i18next-browser-languagedetector": "7.0.1",
     "i18next-http-backend": "2.2.0",

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Button from './Button';
 import FormProvider from '../HomePage/FormProvider';
 import LanguageSelector from './LanguageSelector';
@@ -17,6 +17,7 @@ const NavBar = ({ mobile, setMobile }) => {
 	const [menuModal, setMenuModal] = useState(false);
 	const { userToken, getUserDataByJwt } = useUser();
 	const { t } = useTranslation();
+	const navigate = useNavigate();
 
 	const userData = getUserDataByJwt();
 	return (
@@ -81,7 +82,7 @@ const NavBar = ({ mobile, setMobile }) => {
 							onClick={() => {
 								logOut().then(() => {
 									window.localStorage.removeItem('token');
-									window.location.reload();
+									navigate('/');
 								});
 							}}
 						>
