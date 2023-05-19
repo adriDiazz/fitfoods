@@ -4,3 +4,27 @@ li,
 p {
 	color: white;
 }
+
+.exercisecontainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.lineadivisoria {
+	width: 85%;
+	border: none;
+	height: 1px;
+	background-color: var(--green);
+	margin-top: 40px;
+}
+
+.comentarioscontainer {
+	margin: 0px 120px;
+}
+
+.txtComentarios {
+	color: white;
+	font-size: 1.5rem;
+	margin-top: 20px;
+}

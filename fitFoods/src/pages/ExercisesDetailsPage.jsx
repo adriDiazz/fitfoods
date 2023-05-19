@@ -1,33 +1,54 @@
-import { useParams, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { fetchSteps } from '../utils/services';
-import './ExercisesDetailsPage.module.css';
+import { useLocation } from 'react-router-dom';
+import styles from './ExercisesDetailsPage.module.css';
 import Steps from '../components/ExerciseListPage/Steps';
+import { fetchComments } from '../utils/services';
+import { useState, useEffect } from 'react';
 
 function ExercisesDetailsPage({ setMobile }) {
 	const location = useLocation();
-	console.log(location.state.exercise);
+	const [comentarios, setComentarios] = useState([]);
+
+	console.log(location.state);
 
 	useEffect(() => {
 		setMobile(false);
 	}, []);
 
+	useEffect(() => {
+		fetchComments(location.state.exercise.id, setComentarios);
+	}, []);
+
+	console.log(comentarios.data);
+
 	console.log(location.state.exercise.id);
 
 	return (
 		<div>
-			<h1>{location.state.exercise.name}</h1>
-			<h2>{location.state.exercise.id}</h2>
-			<Steps exerciseID={location.state.exercise.id} />
-			<video
-				preload='metadata'
-				muted
-				autoPlay
-				loop
-				src={location.state.exercise.url}
-			>
-				a
-			</video>
+			<div className={styles.exercisecontainer}>
+				<h1>{location.state.exercise.name}</h1>
+				<Steps exerciseID={location.state.exercise.id} />
+				<video
+					preload='metadata'
+					muted
+					autoPlay
+					loop
+					src={location.state.exercise.url}
+				>
+					a
+				</video>
+				<hr className={styles.lineadivisoria}></hr>
+			</div>
+			<div className={styles.comentarioscontainer}>
+				<h2 className={styles.txtComentarios}>Comentarios</h2>
+				<ul>
+					{comentarios.data &&
+						comentarios.data.map((comentario, index) => (
+							<li key={index} className={styles.lista}>
+								{comentario.text}
+							</li>
+						))}
+				</ul>
+			</div>
 		</div>
 	);
 }

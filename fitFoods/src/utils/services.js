@@ -35,6 +35,24 @@ export const fetchExercises = async (muscleId, setExercises) => {
 	}
 };
 
+export const fetchComments = async (exerciseId, setComments) => {
+	try {
+		const response = await fetchWithToken(
+			`http://127.0.0.1:8000/api/exercises/comments/${exerciseId}`,
+			{
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			}
+		);
+		const data = await response.json();
+		setComments({ loading: false, data });
+	} catch (err) {
+		setComments({ loading: false, error: err, data: [] });
+	}
+};
+
 export const fetchSteps = async (exerciseId, setSteps) => {
 	try {
 		const response = await fetchWithToken(
