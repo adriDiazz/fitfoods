@@ -1,4 +1,4 @@
-import { AreaChart, Card, Title } from '@tremor/react';
+import { AreaChart, Card, Title, Grid, Col, Text, Metric } from '@tremor/react';
 import style from './AdminPage.module.css';
 
 const chartdata = [
@@ -41,17 +41,11 @@ const dataFormatter = number => {
 const AdminPage = () => {
 	return (
 		<div className={style.wrapper}>
-			<Card>
-				<Title>Newsletter revenue over time (USD)</Title>
-				<AreaChart
-					className='h-72 mt-4'
-					data={chartdata}
-					index='date'
-					categories={['SemiAnalysis', 'The Pragmatic Engineer']}
-					colors={['indigo', 'cyan']}
-					valueFormatter={dataFormatter}
-				/>
-			</Card>
+			<Grid numCols={1} numColsSm={2} numColsLg={3}>
+				<Col numColSpan={1} numColSpanLg={2}>
+					<Card></Card>
+				</Col>
+			</Grid>
 		</div>
 	);
 };

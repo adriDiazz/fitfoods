@@ -70,6 +70,17 @@ const NavBar = ({ mobile, setMobile }) => {
 							{t('components.ui.navbar.menus')}
 						</a>
 					)}
+
+					{userData?.type === 1 && (
+						<NavLink
+							to='admin'
+							className={({ isActive }) =>
+								isActive ? styles.selected : styles.navLink
+							}
+						>
+							Dashboard
+						</NavLink>
+					)}
 				</ul>
 
 				{userData ? (
