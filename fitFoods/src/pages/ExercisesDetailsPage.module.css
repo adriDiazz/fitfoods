@@ -9,10 +9,19 @@ p {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
+	padding: 2rem;
 }
 
+.exercisecontainer h1 {
+	font-size: 3rem;
+	margin-top: 40px;
+	color: var(--green);
+}
+
+
 .lineadivisoria {
-	width: 85%;
+	width: 100%;
 	border: none;
 	height: 1px;
 	background-color: var(--green);
@@ -20,7 +29,40 @@ p {
 }
 
 .comentarioscontainer {
-	margin: 0px 120px;
+	padding: 2rem;
+	width: 100%;
+	background-color: #384350;
+	border-radius: 0.5rem;
+	margin-top: 40px;
+}
+
+.commentWrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.commentItem{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 0.2rem;
+	background-color: #262c33;
+	padding: 1rem;
+	border-radius: 0.5rem;
+}
+
+.username {
+	color: var(--green);
+	font-size: 1rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 0.5rem;
 }
 
 .txtComentarios {
@@ -28,3 +70,14 @@ p {
 	font-size: 1.5rem;
 	margin-top: 20px;
 }
+
+@media screen and (max-width: 768px) {
+	.exercisecontainer {
+		width: 100%;
+	}
+	.comentarioscontainer {
+		width: 85%;
+	}
+}
+	
+

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import style from './MenuPage.module.css';
 import Button from '../components/UI/Button';
 import Card from '../components/MenuPage/Card';
-import { addMenu, fetchFood } from '../utils/services';
+import { addMenu } from '../utils/services';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
@@ -22,18 +22,13 @@ const MenuPage = ({ setMobile }) => {
 		isClicked
 	);
 
-	const handleSave = () => {
-		addMenu({ name: 'Prueba', user_id: 1, food: menu });
-	};
-
 	useEffect(() => {
 		if (!userToken) {
 			navigate('/');
 		}
 	}, [userToken]);
 
-	console.log(data);
-
+	
 	useEffect(() => {
 		setMobile(false);
 		setMenu([]);
@@ -90,7 +85,11 @@ const MenuPage = ({ setMobile }) => {
 							);
 						})}
 						<div className={style.btnWrapper}>
-							<Button onClick={handleSave} className={style.btn}>
+							<Button onClick={
+								() => {
+									addMenu({ name: 'Prueba', user_id: 1, food: menu });
+								}
+							} className={style.btn}>
 								{t('components.menupage.page.save')}
 							</Button>
 						</div>

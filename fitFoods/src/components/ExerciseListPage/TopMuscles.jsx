@@ -11,7 +11,7 @@ import 'swiper/css/navigation';
 // eslint-disable-next-line react/prop-types
 function TopMuscles({ muscle: currentMuscle, setMuscleId }) {
 	const [windowSize, setWindowSize] = useState(window.innerWidth);
-	const { data, loading, error } = useFetch(import.meta.env.VITE_MUSCLES_URL);
+	const { data, loading, error } = useFetch(import.meta.env.VITE_MUSCLES_URL, true);
 	const muscleId = getMuscleId(data, currentMuscle);
 	const filteredMuscles = data.filter(muscle => muscle.name !== currentMuscle);
 

@@ -3,6 +3,7 @@
 	display: flex;
 	padding-left: 2rem;
 	gap: 2rem;
+	margin-top: 1rem;
 }
 
 .item {

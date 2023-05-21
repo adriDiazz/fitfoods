@@ -12,7 +12,7 @@ import ExercisesListPage from './pages/ExercisesListPage';
 import './i18n/i18n';
 import { UserProvider, useUser } from './context/UserContext';
 import ExercisesDetailsPage from './pages/ExercisesDetailsPage';
-import GuardedRoute from './components/Routes/GuardedRoute';
+import GuardedRoute from './Routes/GuardedRoute';
 import AdminPage from './pages/AdminPage';
 
 function App() {

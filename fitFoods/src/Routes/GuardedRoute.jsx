@@ -1,8 +1,8 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { useUser } from '../../context/UserContext';
+import { useUser } from '../context/UserContext';
 import jwtDecode from 'jwt-decode';
 
-const GuardedRoute = ({ redirectRoute }) => {
+const GuardedRoute = ({ redirectRoute = '/' }) => {
 	const { userToken } = useUser();
 	let decodedToken = null;
 	const currentDate = new Date();
