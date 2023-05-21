@@ -8,28 +8,19 @@ import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
 import Loader from '../components/UI/Loader';
 import { getMenu } from '../utils/utils';
+import { useFetch } from '../hooks/useFetch';
 
 const MenuPage = ({ setMobile }) => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
-	const [food, setFood] = useState({
-		loading: true,
-		data: [],
-		error: null
-	});
+	const { userToken } = useUser();
 	const [menu, setMenu] = useState([]);
 	const [isClicked, setIsClicked] = useState(false);
 	const [calories, setCalories] = useState();
-	const handleMenu = () => {
-		fetchFood(setFood);
-		setIsClicked(true);
-	};
-
-	const { userToken } = useUser();
-
-	const handleInput = e => {
-		setCalories(e.target.value);
-	};
+	const { data, loading, error } = useFetch(
+		import.meta.env.VITE_FOODS_URL,
+		isClicked
+	);
 
 	const handleSave = () => {
 		addMenu({ name: 'Prueba', user_id: 1, food: menu });
@@ -41,14 +32,16 @@ const MenuPage = ({ setMobile }) => {
 		}
 	}, [userToken]);
 
+	console.log(data);
+
 	useEffect(() => {
 		setMobile(false);
 		setMenu([]);
-		getMenu(food, setMenu, calories);
-	}, [food]);
+		getMenu(data, setMenu, calories);
+	}, [data]);
 
-	if (isClicked && food.error) {
-		return <div>Error: {food.error.message}</div>;
+	if (isClicked && error) {
+		return <div>Error: {error}</div>;
 	}
 
 	return (
@@ -67,12 +60,12 @@ const MenuPage = ({ setMobile }) => {
 						type='text'
 						name='calories'
 						placeholder='#### Calories'
-						onChange={handleInput}
+						onChange={e => setCalories(e.target.value)}
 					></input>
 				</div>
 				<div className={style.buttondiv}>
 					{' '}
-					<Button onClick={handleMenu}>
+					<Button onClick={() => setIsClicked(true)}>
 						{t('components.menupage.page.generate')}
 					</Button>
 				</div>
@@ -80,7 +73,7 @@ const MenuPage = ({ setMobile }) => {
 					{t('components.menupage.page.plan')} {calories}{' '}
 					{t('components.menupage.card.calories')}
 				</p>
-				{isClicked && food.loading ? (
+				{isClicked && loading ? (
 					<Loader />
 				) : menu.length > 0 ? (
 					<div>

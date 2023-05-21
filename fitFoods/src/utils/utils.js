@@ -4,14 +4,14 @@ export const getMuscleId = (topMuscles, currentMuscle) => {
 };
 
 export const getMenu = (food, setMenu, calories) => {
-	if (food.data.length > 0) {
+	if (food.length > 0) {
 		function shuffleArray(array) {
 			for (let i = array.length - 1; i > 0; i--) {
 				const j = Math.floor(Math.random() * (i + 1));
 				[array[i], array[j]] = [array[j], array[i]];
 			}
 		}
-		shuffleArray(food.data);
+		shuffleArray(food);
 		let nBreakfast = 2;
 		let nLunch = 2;
 		let nDinner = 2;
@@ -19,7 +19,7 @@ export const getMenu = (food, setMenu, calories) => {
 		let i = 0;
 		const fArray = { breakfast: [], lunch: [], dinner: [], snack: [] };
 		while (nBreakfast > 0 || nLunch > 0 || nDinner > 0 || nSnack > 0) {
-			const fAdd = food.data[i];
+			const fAdd = food[i];
 			if (nBreakfast > 0 && fAdd.type === 'breakfast') {
 				fArray.breakfast.push(fAdd);
 				nBreakfast -= 1;
