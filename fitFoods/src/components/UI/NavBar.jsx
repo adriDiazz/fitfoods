@@ -94,6 +94,7 @@ const NavBar = ({ mobile, setMobile }) => {
 								logOut().then(() => {
 									window.localStorage.removeItem('token');
 									navigate('/');
+									window.location.reload();
 								});
 							}}
 						>

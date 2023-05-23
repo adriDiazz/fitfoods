@@ -14,7 +14,7 @@ function ExercisesDetailsPage({ setMobile }) {
 		setMobile(false);
 	}, []);
 
-	console.log(data);
+	console.log(url);
 
 	return (
 		<div
@@ -60,7 +60,6 @@ function ExercisesDetailsPage({ setMobile }) {
 													{'->'}
 													{new Date(comentario.created_at).getHours()}:
 													{new Date(comentario.created_at).getMinutes()}
-													
 												</span>
 											</div>
 											{comentario.text}
