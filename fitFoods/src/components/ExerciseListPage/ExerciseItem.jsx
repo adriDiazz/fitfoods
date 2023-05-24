@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Button from '../UI/Button';
 import style from './ExerciseItem.module.css';
 import { useTranslation } from 'react-i18next';
+import noImage from '../../../public/no-image.jpeg';
 // eslint-disable-next-line react/prop-types
 const ExerciseItem = ({ exercise, onClick }) => {
 	const { t } = useTranslation();
@@ -12,7 +13,7 @@ const ExerciseItem = ({ exercise, onClick }) => {
 		<li className={style.card}>
 			<div className={style.container}>
 				{exercise.url === 'None' ? (
-					<img src='no-image.jpeg' alt='noImage avaible' />
+					<img src={noImage} alt='noImage avaible' />
 				) : (
 					<video src={exercise.url}></video>
 				)}

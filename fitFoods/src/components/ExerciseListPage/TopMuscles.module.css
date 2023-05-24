@@ -1,5 +1,5 @@
 .wrapper {
-	width: 90%;
+	width: 100%;
 	display: flex;
 	padding-left: 2rem;
 	gap: 2rem;
@@ -20,3 +20,12 @@
 	cursor: pointer;
 	border: 1px solid var(--green);
 }
+
+
+@media screen and (max-width: 768px) {
+	.item {
+		width: 75px;
+	}
+}
+
+	
