@@ -81,12 +81,12 @@ function LoginModal({ setFormState, setOpened }) {
 					</p>
 					<Button
 						onClick={handleSubmit}
-						// disabled={
-						// 	checkEmail(form.email) ||
-						// 	checkPassword(form.password) ||
-						// 	!form.email ||
-						// 	!form.password
-						// }
+						disabled={
+							checkEmail(form.email) ||
+							checkPassword(form.password) ||
+							!form.email ||
+							!form.password
+						}
 					>
 						{t('components.ui.login.login')}
 					</Button>
