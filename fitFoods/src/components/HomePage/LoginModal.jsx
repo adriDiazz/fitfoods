@@ -79,7 +79,15 @@ function LoginModal({ setFormState, setOpened }) {
 							{t('components.ui.login.here')}
 						</span>
 					</p>
-					<Button onClick={handleSubmit}>
+					<Button
+						onClick={handleSubmit}
+						// disabled={
+						// 	checkEmail(form.email) ||
+						// 	checkPassword(form.password) ||
+						// 	!form.email ||
+						// 	!form.password
+						// }
+					>
 						{t('components.ui.login.login')}
 					</Button>
 				</form>

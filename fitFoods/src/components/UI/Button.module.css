@@ -6,5 +6,11 @@
     background-color: var(--green);
     cursor : pointer;
     color: #000;
+    margin-top: 20px;
+}
 
+.button:disabled {
+    background-color: #ccc;
+    color: #000;
+    cursor: not-allowed;
 }
