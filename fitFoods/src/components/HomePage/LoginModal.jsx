@@ -73,7 +73,11 @@ function LoginModal({ setFormState, setOpened }) {
 						error={checkPassword(form.password)}
 					/>
 					{error && <p className={style.error}>{error}</p>}
-					<p>
+					<p
+						style={{
+							marginTop: '1rem'
+						}}
+					>
 						{t('components.ui.login.register')}
 						<span onClick={() => setFormState('register')}>
 							{t('components.ui.login.here')}
@@ -87,6 +91,7 @@ function LoginModal({ setFormState, setOpened }) {
 							!form.email ||
 							!form.password
 						}
+						className={style.btn}
 					>
 						{t('components.ui.login.login')}
 					</Button>
