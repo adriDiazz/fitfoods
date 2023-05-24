@@ -5,7 +5,7 @@ import style from './Body.module.css';
 
 const FrontBody = () => {
 	const [overName, setOverName] = useState('');
-	const [tooltipStyles, setTooltipStyles] = useState({});
+	const [tooltipStyles, setTooltipStyles] = useState({ display: 'none' });
 	const { i18n } = useTranslation();
 	const navigate = useNavigate();
 	const routeChange = route => {

@@ -5,7 +5,7 @@ import style from './Body.module.css';
 
 const BackBody = () => {
 	const [overName, setOverName] = useState('');
-	const [tooltipStyles, setTooltipStyles] = useState({});
+	const [tooltipStyles, setTooltipStyles] = useState({ display: 'none' });
 	const navigate = useNavigate();
 	const { i18n } = useTranslation();
 	console.log(i18n.language);
