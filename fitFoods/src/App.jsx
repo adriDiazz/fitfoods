@@ -10,14 +10,13 @@ import MobileNavbar from './components/UI/MobileNavbar';
 import { useState } from 'react';
 import ExercisesListPage from './pages/ExercisesListPage';
 import './i18n/i18n';
-import { UserProvider, useUser } from './context/UserContext';
+import { UserProvider } from './context/UserContext';
 import ExercisesDetailsPage from './pages/ExercisesDetailsPage';
 import GuardedRoute from './Routes/GuardedRoute';
 import AdminPage from './pages/AdminPage';
 
 function App() {
 	const [mobile, setMobile] = useState(false);
-	const { userToken } = useUser();
 	return (
 		<>
 			<UserProvider>
@@ -28,10 +27,7 @@ function App() {
 						<Route path='/' element={<HomePage setMobile={setMobile} />} />
 						<Route
 							element={
-								<GuardedRoute
-									isRouteAccessible={userToken}
-									redirectRoute='/'
-								></GuardedRoute>
+								<GuardedRoute routeType={0} redirectRoute='/'></GuardedRoute>
 							}
 						>
 							<Route
@@ -58,8 +54,13 @@ function App() {
 							</Route>
 						</Route>
 
-						<Route path='admin' element={<AdminPage />} />
-
+						<Route
+							element={
+								<GuardedRoute routeType={1} redirectRoute='/'></GuardedRoute>
+							}
+						>
+							<Route path='admin' element={<AdminPage />} />
+						</Route>
 						<Route path='*' element={<h1>404</h1>} />
 					</Routes>
 					<Footer />
