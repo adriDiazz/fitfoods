@@ -1,7 +1,7 @@
 export const checkBlank = text => {
-	if (text === '') {
-		return 'Input required'
-	}
+	// if (text === '') {
+	// 	return 'Input required'
+	// }
 };
 
 export const checkEmail = email => {
@@ -22,3 +22,9 @@ export const checkPassword = password => {
 		return 'Password must contain at least one letter';
 	}
 };
+
+export const checkPasswordMatch = (password, password2) => {
+	if (password !== password2 && password2 !== '') {
+		return 'Passwords do not match';
+	}
+}

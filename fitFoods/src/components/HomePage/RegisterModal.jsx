@@ -5,7 +5,7 @@ import Input from '../UI/Input';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { register } from '../../utils/services';
-import { checkEmail, checkPassword, checkBlank } from '../../utils/inputErrors';
+import { checkEmail, checkPassword, checkBlank, checkPasswordMatch } from '../../utils/inputErrors';
 import { useUser } from '../../context/UserContext';
 
 function RegisterModal({ setFormState, setOpened }) {
@@ -79,7 +79,7 @@ function RegisterModal({ setFormState, setOpened }) {
 						onChange={e =>
 							setForm({ ...form, password_confirmation: e.target.value })
 						}
-						error={checkPassword(form.password_confirmation)}
+						error={checkPassword(form.password_confirmation) && checkPasswordMatch(form.password, form.password_confirmation)}
 					/>
 					{error && <p className={style.error}>{error}</p>}
 					<p>
