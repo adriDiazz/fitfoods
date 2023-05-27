@@ -1,3 +1,9 @@
+export const checkBlank = text => {
+	if (text === '') {
+		return 'Input required'
+	}
+};
+
 export const checkEmail = email => {
 	const re = /\S+@\S+\.\S+/;
 	if (!re.test(email) && email !== '' && email.length > 4) {

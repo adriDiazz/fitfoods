@@ -10,7 +10,7 @@ const FormProvider = ({ setOpened }) => {
 			{formState === 'login' ? (
 				<LoginModal setFormState={setFormState} setOpened={setOpened} />
 			) : (
-				<RegisterModal setFormState={setFormState} />
+				<RegisterModal setFormState={setFormState} setOpened={setOpened} />
 			)}
 		</>
 	);

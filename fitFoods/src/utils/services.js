@@ -159,6 +159,31 @@ export const login = async (data, setError) => {
 	}
 };
 
+export const register = async (data, setError) => {
+	try {
+		const response = await fetchWithToken('http://127.0.0.1:8000/api/register', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(data)
+		});
+
+		const result = await response.json();
+
+		if (result.error) {
+			setError(result.error);
+		} else {
+			setError('success');
+		}
+
+		return result.token;
+	} catch (error) {
+		setError(error.message);
+	}
+};
+
+
 export const logOut = async () => {
 	try {
 		const response = await fetchWithToken('http://127.0.0.1:8000/api/logout', {
