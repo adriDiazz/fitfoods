@@ -1,5 +1,5 @@
-import style from './Dashboard.module.css'
-import { AreaChart, BarChart } from '@tremor/react'
+import style from './Dashboard.module.css';
+import { AreaChart, BarChart } from '@tremor/react';
 const chartdata = [
 	{
 		date: 'Jan 22',
@@ -34,45 +34,45 @@ const chartdata = [
 ];
 
 const chartdata2 = [
-    {
-      name: "Amphibians",
-      "Number of threatened species": 2488,
-    },
-    {
-      name: "Birds",
-      "Number of threatened species": 1445,
-    },
-    {
-      name: "Crustaceans",
-      "Number of threatened species": 743,
-    },
-  ];
+	{
+		name: 'Amphibians',
+		'Number of threatened species': 2488
+	},
+	{
+		name: 'Birds',
+		'Number of threatened species': 1445
+	},
+	{
+		name: 'Crustaceans',
+		'Number of threatened species': 743
+	}
+];
 
 const dataFormatter = number => {
 	return '$ ' + Intl.NumberFormat('us').format(number).toString();
 };
 
 const Dashboard = () => {
-  return (
-    <div className={style.wrapper}>
-       <AreaChart
+	return (
+		<div className={style.wrapper}>
+			<AreaChart
 				data={chartdata}
 				index='date'
 				categories={['SemiAnalysis', 'The Pragmatic Engineer']}
 				colors={['indigo', 'cyan']}
 				valueFormatter={dataFormatter}
-		/>
+			/>
 
-        <BarChart
-             data={chartdata2}
-             index="name"
-             categories={["Number of threatened species"]}
-             colors={["blue"]}
-             valueFormatter={dataFormatter}
-             yAxisWidth={48}
-        />
-    </div>
-  )
-}
+			<BarChart
+				data={chartdata2}
+				index='name'
+				categories={['Number of threatened species']}
+				colors={['blue']}
+				valueFormatter={dataFormatter}
+				yAxisWidth={48}
+			/>
+		</div>
+	);
+};
 
-export default Dashboard
+export default Dashboard;
