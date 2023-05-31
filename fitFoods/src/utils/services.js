@@ -1,14 +1,16 @@
 import { fetchWithToken } from './fetchInterceptor';
 
-
 export const getAllExecisesbyMuscleId = async setEjercicios => {
 	try {
-		const response = await fetchWithToken('http://127.0.0.1:8000/api/dashboard', {
-			method: 'GET',
-			headers: {
-				'Content-Type': 'application/json'
+		const response = await fetchWithToken(
+			'http://127.0.0.1:8000/api/dashboard',
+			{
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json'
+				}
 			}
-		});
+		);
 		const data = await response.json();
 
 		setEjercicios({ loading: false, data });
@@ -179,13 +181,16 @@ export const login = async (data, setError) => {
 
 export const register = async (data, setError) => {
 	try {
-		const response = await fetchWithToken('http://127.0.0.1:8000/api/register', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(data)
-		});
+		const response = await fetchWithToken(
+			'http://127.0.0.1:8000/api/register',
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(data)
+			}
+		);
 
 		const result = await response.json();
 
@@ -200,7 +205,6 @@ export const register = async (data, setError) => {
 		setError(error.message);
 	}
 };
-
 
 export const logOut = async () => {
 	try {
@@ -219,3 +223,44 @@ export const logOut = async () => {
 	}
 };
 
+export const fetchAllExercises = async setExercises => {
+	try {
+		// const response = await fetch('http://127.0.0.1:8000/api/food');
+		const response = await fetchWithToken(
+			'http://127.0.0.1:8000/api/exercises',
+			{
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			}
+		);
+		const data = await response.json();
+
+		setExercises({ loading: false, data });
+	} catch (err) {
+		console.log(err);
+		setExercises({ loading: false, error: err, data: [] });
+	}
+};
+
+export const fetchAllComments = async setComments => {
+	try {
+		// const response = await fetch('http://127.0.0.1:8000/api/food');
+		const response = await fetchWithToken(
+			'http://127.0.0.1:8000/api/comments',
+			{
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			}
+		);
+		const data = await response.json();
+
+		setComments({ loading: false, data });
+	} catch (err) {
+		console.log(err);
+		setComments({ loading: false, error: err, data: [] });
+	}
+};

@@ -1,53 +1,57 @@
+import style from './Comments.module.css';
+
 import { useEffect, useState } from 'react';
 import CommentsPie from './CommentsPie';
-import { fetchComments } from '../../utils/services';
+import { fetchAllComments, fetchAllExercises } from '../../utils/services';
 
 const Comments = () => {
-    const [value, setValue] = useState(null);
-	const [loading, setLoading] = useState(false);
-	const [comments, setComments] = useState();
 	const [sentiments, setSentiments] = useState();
-    useEffect(() => {
-		setLoading(true);
-		fetchComments(value, setComments);
-		setLoading(true);
-	}, [value]);
+	const [exercises, setExercises] = useState();
+	const [allComments, setAllComments] = useState();
+	useEffect(() => {
+		fetchAllExercises(setExercises);
+		fetchAllComments(setAllComments);
+	}, []);
 
 	useEffect(() => {
-		setLoading(false);
-		let negatives = 0;
-		let positives = 0;
-		console.log(comments);
-		if (comments) {
-			console.log(comments.data[0]);
-			comments.data[0].forEach(comentario => {
-				comentario.sentiment < 0 ? negatives++ : positives++;
-			});
-			setSentiments([
-				{ name: 'Positives', qty: positives },
-				{ name: 'Negatives', qty: negatives }
-			]);
+		const positives = {};
+		const negatives = {};
+		allComments?.data.forEach(com => {
+			if (com.exercise_id in positives === false) {
+				positives[com.exercise_id] = 0;
+			}
+			if (com.exercise_id in negatives === false) {
+				negatives[com.exercise_id] = 0;
+			}
+			if (com.sentiment >= 0) {
+				positives[com.exercise_id] += 1;
+			} else {
+				negatives[com.exercise_id] += 1;
+			}
+		});
+		const sentimentsArr = [];
+		let charData = {};
+		let length = Object.keys(positives).length;
+		while (length > 0) {
+			const exerciseName = exercises?.data[length - 1].name;
+			charData = [
+				{ name: 'Positives', qty: positives[length - 1] },
+				{ name: 'Negatives', qty: negatives[length - 1] }
+			];
+			sentimentsArr.push({ title: exerciseName, data: charData });
+			length--;
 		}
-	}, [comments]);
+
+		setSentiments(sentimentsArr);
+	}, [allComments]);
 	return (
 		<div>
-			<h2 style={{ color: 'white' }}>Sentiment analysis for each muscle</h2>
-			<h2 style={{ color: 'white' }}>Select muscle ID:</h2>
-			<select
-				name='comments'
-				id='comments'
-				onChange={e => {
-					setValue(e.target.value);
-				}}
-			>
-				{Array.from({ length: 50 }, (_, i) => (
-					<option key={i + 1} value={i + 1}>
-						{i + 1}
-					</option>
-				))}
-			</select>
-
-			<CommentsPie comments={sentiments}></CommentsPie>
+			<div className={style.wrapper}>
+				{sentiments &&
+					sentiments.map((sen, index) => (
+						<CommentsPie key={index} comments={sen} />
+					))}
+			</div>
 		</div>
 	);
 };
