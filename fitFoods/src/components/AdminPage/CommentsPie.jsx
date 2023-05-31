@@ -8,13 +8,14 @@ const CommentsPie = ({ comments }) => {
 	console.log(comments);
 	return (
 		<div className={style.commentsWrapper}>
-			<h2>{comments.title}</h2>
+			<h2 style={{ color: 'white' }}>{comments.title}</h2>
 			<DonutChart
 				data={comments.data}
 				category='qty'
 				index='name'
 				valueFormatter={valueFormatter}
 				variant='pie'
+				colors={['lime', 'red']}
 			/>
 		</div>
 	);
