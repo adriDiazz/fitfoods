@@ -1,7 +1,7 @@
 import style from './Dashboard.module.css';
 import { Flex, BarChart, Card, Metric, Text } from '@tremor/react';
 
-import { getAllExecisesbyMuscleId } from '../../utils/services';
+import { fetchFood, getAllExecisesbyMuscleId } from '../../utils/services';
 
 import { useState, useEffect } from 'react';
 
@@ -11,10 +11,32 @@ const dataFormatter = number => {
 
 const Dashboard = () => {
 	const [ejercicios, setEjercicios] = useState();
-
+	const [food, setFood] = useState();
+	const [foodTypeQty, setFoodTypeQty] = useState({});
 	useEffect(() => {
 		getAllExecisesbyMuscleId(setEjercicios);
+		fetchFood(setFood);
 	}, []);
+
+	useEffect(() => {
+		let breakfast = 0;
+		let lunch = 0;
+		let dinner = 0;
+		let snack = 0;
+
+		food?.data.forEach(f => {
+			if (f.type === 'breakfast') {
+				breakfast++;
+			} else if (f.type === 'lunch') {
+				lunch++;
+			} else if (f.type === 'dinner') {
+				dinner++;
+			} else {
+				snack++;
+			}
+		});
+		setFoodTypeQty({ breakfast, lunch, dinner, snack });
+	}, [food]);
 
 	const musculos = ejercicios?.data.musclos;
 	const exerciseCountByMuscle = ejercicios?.data.exerciseCountByMuscle;
@@ -47,7 +69,7 @@ const Dashboard = () => {
 						</div>
 						<div>
 							<Text>Breakfast</Text>
-							<Metric>KPI 1</Metric>
+							<Metric>{foodTypeQty.breakfast}</Metric>
 						</div>
 					</div>
 				</Card>
@@ -70,7 +92,7 @@ const Dashboard = () => {
 						</div>
 						<div>
 							<Text>Lunch</Text>
-							<Metric>KPI 1</Metric>
+							<Metric>{foodTypeQty.lunch}</Metric>
 						</div>
 					</div>
 				</Card>
@@ -93,7 +115,7 @@ const Dashboard = () => {
 						</div>
 						<div>
 							<Text>Dinner</Text>
-							<Metric>KPI 1</Metric>
+							<Metric>{foodTypeQty.dinner}</Metric>
 						</div>
 					</div>
 				</Card>
@@ -111,21 +133,21 @@ const Dashboard = () => {
 								<path
 									d='M9.5 22.1666H66.5V12.6666H60.1667L57 6.33331H19L15.8333 12.6666H9.5V22.1666Z'
 									stroke='#374151'
-									stroke-width='4'
-									stroke-linejoin='round'
+									strokeWidth='4'
+									strokeLinejoin='round'
 								/>
 								<path
 									d='M57 69.6667L60.1667 22.1667H15.8334L19 69.6667H57Z'
 									stroke='#374151'
-									stroke-width='4'
-									stroke-linecap='round'
-									stroke-linejoin='round'
+									strokeWidth='4'
+									strokeLinecap='round'
+									strokeLinejoin='round'
 								/>
 							</svg>
 						</div>
 						<div>
 							<Text>Snack</Text>
-							<Metric>KPI 1</Metric>
+							<Metric>{foodTypeQty.snack}</Metric>
 						</div>
 					</div>
 				</Card>
