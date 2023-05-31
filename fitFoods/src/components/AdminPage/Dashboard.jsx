@@ -1,5 +1,10 @@
 import style from './Dashboard.module.css';
 import { AreaChart, BarChart } from '@tremor/react';
+
+import { getAllExecisesbyMuscleId } from '../../utils/services';
+
+import { useState, useEffect } from 'react';
+
 const chartdata = [
 	{
 		date: 'Jan 22',
@@ -36,23 +41,39 @@ const chartdata = [
 const chartdata2 = [
 	{
 		name: 'Amphibians',
-		'Number of threatened species': 2488
+		'Numero de ejercicios': 15
 	},
 	{
 		name: 'Birds',
-		'Number of threatened species': 1445
+		'Numero de ejercicios': 40
 	},
 	{
 		name: 'Crustaceans',
-		'Number of threatened species': 743
+		'Numero de ejercicios': 30
 	}
 ];
 
 const dataFormatter = number => {
-	return '$ ' + Intl.NumberFormat('us').format(number).toString();
+	return Intl.NumberFormat('us').format(number).toString();
 };
 
 const Dashboard = () => {
+	const [ejercicios, setEjercicios] = useState();
+
+	useEffect(() => {
+		getAllExecisesbyMuscleId(setEjercicios);
+	}, []);
+
+	const musculos = ejercicios?.data.musclos;
+	const exerciseCountByMuscle = ejercicios?.data.exerciseCountByMuscle;
+
+	const chartdata3 = musculos.map(musculo => ({
+		name: musculo.name,
+		'Numero de ejercicios': exerciseCountByMuscle[musculo.id]
+	}));
+
+	console.log(chartdata3);
+
 	return (
 		<div className={style.wrapper}>
 			<AreaChart
@@ -62,12 +83,12 @@ const Dashboard = () => {
 				colors={['indigo', 'cyan']}
 				valueFormatter={dataFormatter}
 			/>
-
+			<h1>Ejercicios por Músculo</h1>
 			<BarChart
-				data={chartdata2}
+				data={chartdata3}
 				index='name'
-				categories={['Number of threatened species']}
-				colors={['blue']}
+				categories={['Numero de ejercicios']}
+				colors={['lime']}
 				valueFormatter={dataFormatter}
 				yAxisWidth={48}
 			/>

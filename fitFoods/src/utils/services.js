@@ -1,5 +1,23 @@
 import { fetchWithToken } from './fetchInterceptor';
 
+
+export const getAllExecisesbyMuscleId = async setEjercicios => {
+	try {
+		const response = await fetchWithToken('http://127.0.0.1:8000/api/dashboard', {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		});
+		const data = await response.json();
+
+		setEjercicios({ loading: false, data });
+	} catch (err) {
+		console.log(err);
+		setEjercicios({ loading: false, error: err, data: [] });
+	}
+};
+
 export const fetchMuscles = async setTopMuscles => {
 	try {
 		const response = await fetchWithToken('http://127.0.0.1:8000/api/muscles', {
