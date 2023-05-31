@@ -14,6 +14,7 @@ import { UserProvider } from './context/UserContext';
 import ExercisesDetailsPage from './pages/ExercisesDetailsPage';
 import GuardedRoute from './Routes/GuardedRoute';
 import AdminPage from './pages/AdminPage';
+import ErrorPage from './components/UI/ErrorPage';
 
 function App() {
 	const [mobile, setMobile] = useState(false);
@@ -61,7 +62,7 @@ function App() {
 						>
 							<Route path='admin' element={<AdminPage />} />
 						</Route>
-						<Route path='*' element={<h1>404</h1>} />
+						<Route path='*' element={<ErrorPage />} />
 					</Routes>
 					<Footer />
 				</LanguageProvider>
