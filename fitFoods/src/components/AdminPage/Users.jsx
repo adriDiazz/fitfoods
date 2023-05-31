@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import style from './Users.module.css';
 import {
-	Card,
 	Table,
 	TableHead,
 	TableRow,
@@ -10,11 +9,10 @@ import {
 	TableBody,
 	TableCell,
 	Text,
-	Title,
 	Badge
 } from '@tremor/react';
 
-import { getAllUsers, updateAdminToUser } from '../../utils/adminServices';
+import { deleteUser, getAllUsers, updateAdminToUser } from '../../utils/adminServices';
 import Button from '../UI/Button';
 
 const Users = () => {
@@ -60,11 +58,15 @@ const Users = () => {
 
                                 <TableCell>
 									<Badge onClick={() => {
-                                        
-                                            
-                                        
-                                    }} color='red'>
-										Delete user
+										
+										deleteUser(item.id, setUsers)
+                    
+                                    }} color='red' style={{
+										cursor: 'pointer'
+									}}>
+										<p style={{
+											color: '#000'
+										}}>Delete User</p>
 									</Badge>
 								</TableCell>
 							</TableRow>
