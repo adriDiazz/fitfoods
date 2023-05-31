@@ -1,0 +1,8 @@
+.table {
+    background-color: var(--dark-blue);
+    padding: 2rem;
+}
+
+.tableCard {
+    background-color: var(--dark-blue);
+}

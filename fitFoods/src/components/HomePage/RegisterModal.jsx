@@ -32,6 +32,7 @@ function RegisterModal({ setFormState, setOpened }) {
 		const token = await register(form, setError);
 		userTokenChange(token);
 	};
+	
 	return (
 		<div className={style.wrapper}>
 			<div className={style.left}>
@@ -101,6 +102,11 @@ function RegisterModal({ setFormState, setOpened }) {
 					>
 						{t('components.ui.login.here')}
 					</Button>
+					{error !== 'success' && (
+						<p className={style.terms}>
+							{error}
+						</p>
+					)}
 				</form>
 			</div>
 		</div>
