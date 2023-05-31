@@ -1,20 +1,33 @@
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    padding: 2rem;
-    background-color: var(--dark-blue);
-    border-radius: 1rem;
-    gap: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+	padding: 2rem;
+	background-color: var(--dark-blue);
+	border-radius: 1rem;
+	gap: 2rem;
+}
+
+.commentsWrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+	max-width: 50%;
+	padding: 2rem;
+	background-color: var(--dark-blue);
+	border-radius: 1rem;
+	gap: 2rem;
 }
 
 .CardContent {
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-    width: 100%;
-    gap: 2rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	align-items: center;
+	width: 100%;
+	gap: 2rem;
 }

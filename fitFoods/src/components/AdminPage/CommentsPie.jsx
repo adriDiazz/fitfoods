@@ -7,9 +7,10 @@ const valueFormatter = number =>
 const CommentsPie = ({ comments }) => {
 	console.log(comments);
 	return (
-		<div className={style.wrapper}>
+		<div className={style.commentsWrapper}>
+			<h2>{comments.title}</h2>
 			<DonutChart
-				data={comments}
+				data={comments.data}
 				category='qty'
 				index='name'
 				valueFormatter={valueFormatter}
