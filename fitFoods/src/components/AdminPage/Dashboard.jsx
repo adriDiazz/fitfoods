@@ -67,7 +67,7 @@ const Dashboard = () => {
 	const musculos = ejercicios?.data.musclos;
 	const exerciseCountByMuscle = ejercicios?.data.exerciseCountByMuscle;
 
-	const chartdata3 = musculos.map(musculo => ({
+	const chartdata3 = musculos?.map(musculo => ({
 		name: musculo.name,
 		'Numero de ejercicios': exerciseCountByMuscle[musculo.id]
 	}));
