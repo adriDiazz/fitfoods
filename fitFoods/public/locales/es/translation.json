@@ -38,7 +38,9 @@
             "calories": "Calorias que quieres comer",
             "generate": "Generar menú",
             "save": "Guardar menú",
-            "plan": "Menú de hoy: "
+            "plan": "Menú de hoy: ",
+            "create": "Crear menú",
+            "mymenus": "Mis menús"
           }
       },
       "ui": {

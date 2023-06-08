@@ -1,0 +1,116 @@
+.nomenus {
+	padding-top: 4rem;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 32px;
+	line-height: 39px;
+	text-align: center;
+	color: #f24646;
+	padding: 2rem;
+}
+
+.titulo {
+	margin-top: 5rem;
+	font-style: normal;
+	font-weight: 400;
+	font-size: clamp(1.5rem, 9vw, 3.5rem);
+	line-height: 38px;
+	text-align: center;
+	text-transform: uppercase;
+	color: #ffffff;
+	margin-bottom: 2rem;
+}
+
+.rectangulo {
+	width: 70%;
+	margin: auto;
+	height: auto;
+	padding-bottom: 50px;
+	background: #4d5864;
+	border-radius: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 200px;
+	/* altura mínima */
+	max-height: max-content;
+	/* altura máxima */
+}
+
+.titulocalorias {
+	padding-top: 4rem;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 32px;
+	line-height: 39px;
+	text-align: center;
+	color: #bbf246;
+	padding: 2rem;
+}
+
+.input {
+	text-align: center;
+}
+
+.inputcalorias {
+	margin-top: -1rem;
+	width: 60%;
+	height: 35px;
+	background: #d9d9d9;
+	border-color: transparent;
+	border-radius: 6px;
+	text-align: center;
+}
+
+.inputcalorias:focus {
+	outline: solid 2px #bbf246;
+}
+
+.buttondiv {
+	margin-top: 2rem;
+	text-align: center;
+}
+
+.titulomenu {
+	text-align: center;
+	margin-top: 3rem;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 29px;
+	text-align: center;
+	color: #ffffff;
+}
+
+.btnWrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-top: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+	.titulo {
+		margin-top: 2rem;
+	}
+	.titulocalorias {
+		padding-top: 2rem;
+	}
+	.inputcalorias {
+		width: 80%;
+	}
+	.titulomenu {
+		margin-top: 1rem;
+	}
+	.btnWrapper {
+		margin-top: 1rem;
+	}
+
+	.rectangulo {
+		width: 90%;
+	}
+
+	.informacion {
+		flex-direction: column;
+	}
+}

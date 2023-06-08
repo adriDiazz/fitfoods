@@ -264,3 +264,24 @@ export const fetchAllComments = async setComments => {
 		setComments({ loading: false, error: err, data: [] });
 	}
 };
+
+export const getAllMenus = async (data, setMenus) => {
+	try {
+		const response = await fetchWithToken(
+			'http://127.0.0.1:8000/api/getmenus',
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(data)
+			}
+		);
+
+		const result = await response.json();
+		setMenus(result);
+	} catch (error) {
+		console.error('Error:', error);
+		setMenus(error);
+	}
+};
